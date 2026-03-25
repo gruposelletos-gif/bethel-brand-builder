@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo-bethel.jpg";
+import logo from "@/assets/logo-bethel.png";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
@@ -25,7 +25,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container-bethel flex items-center justify-between h-20 px-4 lg:px-16">
         <button onClick={() => scrollTo("#inicio")} className="flex-shrink-0">
-          <img src={logo} alt="BETHEL" className="h-14 w-auto object-contain" />
+          <img src={logo} alt="BETHEL" className="h-16 md:h-20 w-auto object-contain" />
         </button>
 
         {/* Desktop nav */}

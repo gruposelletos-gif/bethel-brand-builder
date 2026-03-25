@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import logo from "@/assets/logo-bethel.jpg";
+import logo from "@/assets/logo-bethel.png";
 
 const HeroSection = () => {
   const scrollTo = (href: string) => {
@@ -27,7 +27,7 @@ const HeroSection = () => {
           transition={{ duration: 0.9, ease: "easeOut" }}
           src={logo}
           alt="BETHEL"
-          className="h-20 md:h-28 lg:h-32 mx-auto mb-10 rounded-xl bg-primary-foreground/95 p-3 shadow-xl"
+          className="h-28 md:h-36 lg:h-44 mx-auto mb-10 rounded-xl bg-primary-foreground/95 p-4 shadow-xl"
         />
         <motion.h1
           initial={{ opacity: 0, y: 25 }}

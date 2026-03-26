@@ -17,6 +17,16 @@ const projects = [
   { img: p7, title: "Rota Acessível — Elevador e Salas", desc: "Instalação de piso tátil direcional conectando elevador acessível às salas adjacentes." },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 const PortfolioSection = () => (
   <section id="portfolio" className="section-padding bg-muted">
     <div className="container-bethel">
@@ -26,29 +36,28 @@ const PortfolioSection = () => (
         </h2>
         <div className="w-20 h-1 gradient-primary mx-auto mt-4 rounded-full" />
         <p className="font-body text-muted-foreground text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-          Confira alguns projetos já executados pela Bethel, com soluções voltadas para acessibilidade, segurança e qualidade de execução.
+          Confira alguns projetos já executados pela Bethel, com soluções voltadas para <span className="text-primary font-semibold">acessibilidade</span>, <span className="text-primary font-semibold">segurança</span> e qualidade de execução.
         </p>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((p, i) => (
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={containerVariants} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((p) => (
           <motion.div
             key={p.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
             className="rounded-xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-300 group"
           >
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden relative">
               <img
                 src={p.img}
                 alt={p.title}
                 loading="lazy"
                 width={800}
                 height={600}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="p-5">
               <h3 className="font-heading text-base font-bold text-foreground mb-1.5">{p.title}</h3>
@@ -56,7 +65,7 @@ const PortfolioSection = () => (
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );

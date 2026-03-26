@@ -7,8 +7,23 @@ const CtaSection = () => {
   };
 
   return (
-    <section className="section-padding gradient-primary">
-      <div className="container-bethel text-center">
+    <section className="section-padding gradient-primary relative overflow-hidden">
+      {/* Decorative circles */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.1 }}
+        viewport={{ once: true }}
+        className="absolute -top-20 -right-20 w-80 h-80 rounded-full border-2 border-primary-foreground"
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.05 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full border-2 border-primary-foreground"
+      />
+
+      <div className="container-bethel text-center relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +50,7 @@ const CtaSection = () => {
         >
           <button
             onClick={() => scrollTo("#contato")}
-            className="bg-primary-foreground text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary-foreground/90 transition-all shadow-lg"
+            className="bg-primary-foreground text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary-foreground/90 transition-all shadow-lg hover:shadow-xl"
           >
             Solicitar orçamento
           </button>

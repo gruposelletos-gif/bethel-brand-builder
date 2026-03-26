@@ -9,27 +9,6 @@ const HeroSection = () => {
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* Decorative subtle shapes */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.04 }}
-        transition={{ duration: 2 }}
-        className="absolute top-20 left-[10%] w-72 h-72 rounded-full border border-primary"
-      />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.03 }}
-        transition={{ duration: 2.5, delay: 0.5 }}
-        className="absolute bottom-32 left-[5%] w-48 h-48 rounded-full border border-secondary"
-      />
-      {/* Subtle glow */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.06 }}
-        transition={{ duration: 3, delay: 0.3 }}
-        className="absolute top-1/3 left-[15%] w-96 h-96 rounded-full bg-primary blur-[120px]"
-      />
-
       {/* Image positioned on the right side */}
       <div className="absolute right-0 top-0 w-[60%] h-full">
         <motion.img

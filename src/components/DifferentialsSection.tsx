@@ -10,6 +10,16 @@ const items = [
   { icon: Star, title: "Confiança e Credibilidade", desc: "Reputação construída com transparência e resultados." },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
+
 const DifferentialsSection = () => (
   <section className="section-padding bg-background">
     <div className="container-bethel">
@@ -20,26 +30,27 @@ const DifferentialsSection = () => (
         <div className="w-20 h-1 gradient-primary mx-auto mt-4 rounded-full" />
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {items.map((item, i) => (
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={containerVariants} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {items.map((item) => (
           <motion.div
             key={item.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="flex gap-4 items-start p-6 rounded-xl bg-card border border-border hover:shadow-md transition-shadow"
+            variants={itemVariants}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="flex gap-4 items-start p-6 rounded-xl bg-card border border-border hover:shadow-lg transition-all"
           >
-            <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0"
+            >
               <item.icon className="text-primary-foreground" size={22} />
-            </div>
+            </motion.div>
             <div>
               <h3 className="font-heading text-base font-bold text-foreground mb-1">{item.title}</h3>
               <p className="font-body text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );

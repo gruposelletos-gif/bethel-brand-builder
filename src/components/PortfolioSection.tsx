@@ -58,6 +58,13 @@ const projects: Project[] = [
     cover: c5,
     images: [c1, c2, c3, c4, c5, c6, c7],
   },
+  {
+    title: "Elemento Tátil Inox – Obra Câmara Municipal de Capivari",
+    description:
+      "Instalação de piso tátil direcional e de alerta em aço inox na Câmara Municipal de Capivari, garantindo acessibilidade e conformidade normativa em todo o espaço público.",
+    cover: cap3,
+    images: [cap1, cap2, cap3, cap4, cap5],
+  },
 ];
 
 const PortfolioSection = () => {

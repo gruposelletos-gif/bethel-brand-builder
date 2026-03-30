@@ -39,7 +39,7 @@ const ServicesSection = () => (
             key={s.title}
             variants={cardVariants}
             whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className="bg-card rounded-xl p-8 border border-border shadow-sm hover:shadow-lg transition-all group"
+            className="card-3d bg-card rounded-xl p-8 border border-border shadow-sm group"
           >
             <motion.div
               whileHover={{ scale: 1.15, rotate: -5 }}

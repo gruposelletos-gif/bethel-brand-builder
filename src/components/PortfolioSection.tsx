@@ -23,6 +23,11 @@ import c4 from "@/assets/cury-4.jpg";
 import c5 from "@/assets/cury-5.jpg";
 import c6 from "@/assets/cury-6.jpg";
 import c7 from "@/assets/cury-7.jpg";
+import cap1 from "@/assets/capivari-1.jpg";
+import cap2 from "@/assets/capivari-2.jpg";
+import cap3 from "@/assets/capivari-3.jpg";
+import cap4 from "@/assets/capivari-4.jpg";
+import cap5 from "@/assets/capivari-5.jpg";
 
 interface Project {
   title: string;

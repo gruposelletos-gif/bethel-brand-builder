@@ -46,7 +46,7 @@ const AboutSection = () => (
             <motion.div
               whileHover={{ rotate: 5, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6"
+              className="icon-3d w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <item.icon className="text-primary-foreground" size={28} />
             </motion.div>

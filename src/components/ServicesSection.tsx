@@ -44,7 +44,7 @@ const ServicesSection = () => (
             <motion.div
               whileHover={{ scale: 1.15, rotate: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="w-14 h-14 gradient-primary rounded-lg flex items-center justify-center mb-6"
+              className="icon-3d w-14 h-14 gradient-primary rounded-lg flex items-center justify-center mb-6"
             >
               <s.icon className="text-primary-foreground" size={24} />
             </motion.div>

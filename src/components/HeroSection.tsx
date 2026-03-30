@@ -77,13 +77,13 @@ const HeroSection = () => {
           >
             <button
               onClick={() => scrollTo("#produtos")}
-              className="gradient-primary text-primary-foreground font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+              className="btn-3d gradient-primary text-primary-foreground font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg active:scale-[0.98]"
             >
               Conheça nossos produtos
             </button>
             <button
               onClick={() => scrollTo("#contato")}
-              className="border-2 border-primary text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary/5 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="btn-3d border-2 border-primary text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary/5 transition-all active:scale-[0.98]"
             >
               Fale com nossa equipe
             </button>

@@ -40,7 +40,7 @@ const DifferentialsSection = () => (
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
-              className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0"
+              className="icon-3d w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0"
             >
               <item.icon className="text-primary-foreground" size={22} />
             </motion.div>

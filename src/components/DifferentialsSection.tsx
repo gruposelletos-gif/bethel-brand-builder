@@ -36,7 +36,7 @@ const DifferentialsSection = () => (
             key={item.title}
             variants={itemVariants}
             whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className="flex gap-4 items-start p-6 rounded-xl bg-card border border-border hover:shadow-lg transition-all"
+            className="card-3d flex gap-4 items-start p-6 rounded-xl bg-card border border-border"
           >
             <motion.div
               whileHover={{ scale: 1.1 }}

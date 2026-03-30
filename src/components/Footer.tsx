@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Mail, MessageCircle, MapPin } from "lucide-react";
 import logo from "@/assets/logo-bethel.png";
 
 const Footer = () => {
@@ -33,10 +33,19 @@ const Footer = () => {
 
           <div>
             <h4 className="font-heading text-sm font-bold mb-4 tracking-wide">CONTATO</h4>
-            <div className="space-y-2 font-body text-sm text-primary-foreground/70">
-              <p>(00) 0000-0000</p>
-              <p>contato@bethel.com.br</p>
-              <p>Rua Exemplo, 123 — Cidade/UF</p>
+            <div className="space-y-3 font-body text-sm">
+              <a href="https://wa.me/5511991628441" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
+                <MessageCircle size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors" />
+                (11) 9 9162-8441
+              </a>
+              <a href="mailto:contato@toceart.com.br" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
+                <Mail size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors" />
+                contato@toceart.com.br
+              </a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua+Azuma+80+Penha+Bragança+Paulista+SP" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
+                <MapPin size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors mt-0.5" />
+                Rua Azuma, 80, Penha, Bragança Paulista
+              </a>
             </div>
           </div>
 
@@ -54,7 +63,10 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 pt-8 text-center">
           <p className="font-body text-xs text-primary-foreground/50">
-            © 2026 BETHEL. Todos os direitos reservados.
+            © 2026 BETHEL. Todos os direitos reservados. Criado por{" "}
+            <a href="https://selletos.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors underline underline-offset-2">
+              selletos.com.br
+            </a>
           </p>
         </div>
       </div>

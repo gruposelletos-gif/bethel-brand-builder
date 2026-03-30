@@ -21,9 +21,9 @@ const HeroSection = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-transparent h-32" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-transparent h-24" />
       </div>
 
       {/* Content - pushed more to the left */}
@@ -77,13 +77,13 @@ const HeroSection = () => {
           >
             <button
               onClick={() => scrollTo("#produtos")}
-              className="gradient-primary text-primary-foreground font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+              className="btn-3d gradient-primary text-primary-foreground font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg active:scale-[0.98]"
             >
               Conheça nossos produtos
             </button>
             <button
               onClick={() => scrollTo("#contato")}
-              className="border-2 border-primary text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary/5 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="btn-3d border-2 border-primary text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary/5 transition-all active:scale-[0.98]"
             >
               Fale com nossa equipe
             </button>

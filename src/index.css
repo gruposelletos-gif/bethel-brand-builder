@@ -94,4 +94,37 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .card-3d {
+    @apply transition-all duration-300;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-6px) rotateX(2deg) rotateY(-1deg);
+    box-shadow: 0 20px 40px -12px hsla(var(--primary), 0.15),
+                0 8px 16px -8px hsla(var(--navy), 0.1);
+  }
+
+  .icon-3d {
+    @apply transition-all duration-300;
+    transform-style: preserve-3d;
+  }
+
+  .icon-3d:hover {
+    transform: translateZ(10px) scale(1.1) rotateY(-8deg);
+    box-shadow: 0 12px 24px -6px hsla(var(--primary), 0.25);
+  }
+
+  .btn-3d {
+    @apply transition-all duration-300;
+    transform-style: preserve-3d;
+  }
+
+  .btn-3d:hover {
+    transform: translateY(-3px) translateZ(5px);
+    box-shadow: 0 12px 28px -8px hsla(var(--primary), 0.3),
+                0 4px 8px -4px hsla(var(--navy), 0.1);
+  }
 }

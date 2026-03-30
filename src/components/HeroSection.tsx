@@ -21,9 +21,9 @@ const HeroSection = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-transparent h-32" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-transparent h-24" />
       </div>
 
       {/* Content - pushed more to the left */}

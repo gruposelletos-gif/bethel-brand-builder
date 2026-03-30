@@ -16,6 +16,13 @@ import ab5 from "@/assets/aeroporto-belem-5.jpg";
 import ab6 from "@/assets/aeroporto-belem-6.jpg";
 import ab7 from "@/assets/aeroporto-belem-7.jpg";
 import ab8 from "@/assets/aeroporto-belem-8.jpg";
+import c1 from "@/assets/cury-1.jpg";
+import c2 from "@/assets/cury-2.jpg";
+import c3 from "@/assets/cury-3.jpg";
+import c4 from "@/assets/cury-4.jpg";
+import c5 from "@/assets/cury-5.jpg";
+import c6 from "@/assets/cury-6.jpg";
+import c7 from "@/assets/cury-7.jpg";
 
 interface Project {
   title: string;
@@ -38,6 +45,13 @@ const projects: Project[] = [
       "Instalação de piso tátil direcional e de alerta em aço inox no Aeroporto Internacional de Belém, preparando a infraestrutura de acessibilidade para a COP 30.",
     cover: ab3,
     images: [ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8],
+  },
+  {
+    title: "Obra Residencial – Construtora Cury",
+    description:
+      "Instalação de piso tátil de alerta em PVC nas áreas comuns do empreendimento residencial da Construtora Cury, incluindo escadas, elevadores e portas corta-fogo.",
+    cover: c5,
+    images: [c1, c2, c3, c4, c5, c6, c7],
   },
 ];
 

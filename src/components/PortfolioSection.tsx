@@ -23,6 +23,11 @@ import c4 from "@/assets/cury-4.jpg";
 import c5 from "@/assets/cury-5.jpg";
 import c6 from "@/assets/cury-6.jpg";
 import c7 from "@/assets/cury-7.jpg";
+import cap1 from "@/assets/capivari-1.jpg";
+import cap2 from "@/assets/capivari-2.jpg";
+import cap3 from "@/assets/capivari-3.jpg";
+import cap4 from "@/assets/capivari-4.jpg";
+import cap5 from "@/assets/capivari-5.jpg";
 
 interface Project {
   title: string;
@@ -52,6 +57,13 @@ const projects: Project[] = [
       "Instalação de piso tátil de alerta em PVC nas áreas comuns do empreendimento residencial da Construtora Cury, incluindo escadas, elevadores e portas corta-fogo.",
     cover: c5,
     images: [c1, c2, c3, c4, c5, c6, c7],
+  },
+  {
+    title: "Elemento Tátil Inox – Obra Câmara Municipal de Capivari",
+    description:
+      "Instalação de piso tátil direcional e de alerta em aço inox na Câmara Municipal de Capivari, garantindo acessibilidade e conformidade normativa em todo o espaço público.",
+    cover: cap3,
+    images: [cap1, cap2, cap3, cap4, cap5],
   },
 ];
 

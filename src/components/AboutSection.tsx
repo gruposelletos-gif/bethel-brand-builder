@@ -41,7 +41,7 @@ const AboutSection = () => (
             key={item.title}
             variants={scaleIn}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="bg-card rounded-xl p-8 border border-border shadow-sm hover:shadow-lg transition-shadow text-center"
+            className="card-3d bg-card rounded-xl p-8 border border-border shadow-sm text-center"
           >
             <motion.div
               whileHover={{ rotate: 5, scale: 1.1 }}

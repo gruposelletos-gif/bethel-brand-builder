@@ -8,6 +8,14 @@ import p4 from "@/assets/portfolio-4.jpg";
 import p5 from "@/assets/portfolio-5.jpg";
 import p6 from "@/assets/portfolio-6.jpg";
 import p7 from "@/assets/portfolio-7.jpg";
+import ab1 from "@/assets/aeroporto-belem-1.jpg";
+import ab2 from "@/assets/aeroporto-belem-2.jpg";
+import ab3 from "@/assets/aeroporto-belem-3.jpg";
+import ab4 from "@/assets/aeroporto-belem-4.jpg";
+import ab5 from "@/assets/aeroporto-belem-5.jpg";
+import ab6 from "@/assets/aeroporto-belem-6.jpg";
+import ab7 from "@/assets/aeroporto-belem-7.jpg";
+import ab8 from "@/assets/aeroporto-belem-8.jpg";
 
 interface Project {
   title: string;
@@ -23,6 +31,13 @@ const projects: Project[] = [
       "Instalação completa de piso tátil direcional e de alerta em PVC, garantindo acessibilidade e segurança em todos os ambientes da Escola de Dança Vila Olímpia.",
     cover: p1,
     images: [p1, p2, p3, p4, p5, p6, p7],
+  },
+  {
+    title: "Aeroporto Internacional de Belém – COP 30",
+    description:
+      "Instalação de piso tátil direcional e de alerta em aço inox no Aeroporto Internacional de Belém, preparando a infraestrutura de acessibilidade para a COP 30.",
+    cover: ab3,
+    images: [ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8],
   },
 ];
 

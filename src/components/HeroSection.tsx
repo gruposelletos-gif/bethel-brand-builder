@@ -43,9 +43,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
           >
-            <span className="text-primary">Soluções</span> completas com{" "}
-            <span className="text-primary">qualidade</span>,{" "}
-            <span className="text-primary">confiança</span> e excelência
+            <span className="text-primary">Indústria</span> especializada em{" "}
+            <span className="text-primary">acessibilidade</span> com{" "}
+            <span className="text-primary">fabricação própria</span>
           </motion.h1>
 
           <motion.p
@@ -54,10 +54,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="font-body text-base md:text-lg lg:text-xl text-muted-foreground mt-6 max-w-xl leading-relaxed"
           >
-            A BETHEL atua com venda de produtos e prestação de serviços, oferecendo{" "}
-            <span className="text-primary font-semibold">soluções</span> profissionais com foco em{" "}
-            <span className="text-primary font-semibold">acessibilidade</span>,{" "}
-            <span className="text-primary font-semibold">segurança</span> e atendimento especializado.
+            A BETHEL é uma indústria que{" "}
+            <span className="text-primary font-semibold">fabrica</span>, comercializa e instala soluções em{" "}
+            <span className="text-primary font-semibold">acessibilidade</span> e{" "}
+            <span className="text-primary font-semibold">segurança</span> — com produção própria, equipe técnica especializada e entrega completa.
           </motion.p>
 
           <motion.div

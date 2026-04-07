@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Award, Users, ShieldCheck, Clock, Puzzle, Star } from "lucide-react";
 
 const items = [
-  { icon: Award, title: "Qualidade nos Produtos", desc: "Produtos selecionados com rigoroso controle de qualidade." },
-  { icon: Users, title: "Atendimento Especializado", desc: "Equipe preparada para entender e atender cada necessidade." },
-  { icon: ShieldCheck, title: "Equipe Qualificada", desc: "Profissionais experientes e capacitados em acessibilidade." },
-  { icon: Clock, title: "Compromisso com Prazos", desc: "Entregas pontuais e cumprimento de cronogramas." },
-  { icon: Puzzle, title: "Soluções Personalizadas", desc: "Projetos adaptados à realidade de cada cliente." },
-  { icon: Star, title: "Confiança e Credibilidade", desc: "Reputação construída com transparência e resultados." },
+  { icon: Award, title: "Fabricação Própria", desc: "Produção industrial própria com controle total de qualidade e acabamento." },
+  { icon: Users, title: "Atendimento Especializado", desc: "Equipe técnica preparada para entender e atender cada necessidade." },
+  { icon: ShieldCheck, title: "Equipe Qualificada", desc: "Profissionais experientes e capacitados em acessibilidade e instalação." },
+  { icon: Clock, title: "Compromisso com Prazos", desc: "Entregas pontuais direto da nossa fábrica ao seu projeto." },
+  { icon: Puzzle, title: "Soluções Completas", desc: "Da fabricação à instalação — projetos adaptados à realidade de cada cliente." },
+  { icon: Star, title: "Confiança e Credibilidade", desc: "Indústria consolidada com reputação construída por resultados." },
 ];
 
 const containerVariants = {

@@ -6,6 +6,14 @@ import produtoBarraReta2 from "@/assets/produto-barra-reta-2.jpg";
 import produtoAlarme from "@/assets/produto-alarme-pcd.jpg";
 import produtoChapa from "@/assets/produto-chapa-inox.jpg";
 import produtoPlaca from "@/assets/produto-placa-inox-1.jpg";
+import produtoPisoAlerta from "@/assets/produto-piso-tatil-alerta.jpg";
+import produtoPisoDirecionalAlerta from "@/assets/produto-piso-tatil-direcional-alerta.jpg";
+import produtoPisoDirecional from "@/assets/produto-piso-tatil-direcional.jpg";
+import produtoAcabamentoInox from "@/assets/produto-placa-inox-2.jpg";
+import produtoPlacaBraille from "@/assets/produto-placa-braille-pne.jpg";
+import produtoPlacaFeminino from "@/assets/produto-placa-sanitario-feminino.jpg";
+import produtoPlacaMasculino from "@/assets/produto-placa-sanitario-masculino.jpg";
+import produtoPlacaPuxeEmpurre from "@/assets/produto-placa-puxe-empurre.jpg";
 
 const products = [
   {
@@ -42,6 +50,46 @@ const products = [
     img: produtoPlaca,
     name: "Placa / Acabamento Inox",
     desc: "Placa de acabamento em inox produzida com excelente qualidade e acabamento refinado. Indicada para compor soluções de acessibilidade com visual limpo, resistente e profissional.",
+  },
+  {
+    img: produtoPisoAlerta,
+    name: "Piso Tátil de Alerta",
+    desc: "Piso tátil de alerta desenvolvido para sinalização de atenção e mudança de condição no percurso, contribuindo para a orientação e segurança de pessoas com deficiência visual. Fabricado com alta resistência, durabilidade e excelente acabamento.",
+  },
+  {
+    img: produtoPisoDirecionalAlerta,
+    name: "Piso Tátil Direcional e de Alerta",
+    desc: "Conjunto de piso tátil direcional e piso tátil de alerta, desenvolvido para orientar deslocamentos e sinalizar pontos de atenção em rotas acessíveis. Solução essencial para projetos de acessibilidade, com fabricação de qualidade e padrão técnico profissional.",
+  },
+  {
+    img: produtoAcabamentoInox,
+    name: "Acabamento / Proteção Inox",
+    desc: "Peça de acabamento em inox desenvolvida para proteção, fixação e composição técnica em ambientes acessíveis. Fabricada com material resistente, excelente acabamento e visual profissional.",
+  },
+  {
+    img: produtoPisoDirecional,
+    name: "Piso Tátil Direcional",
+    desc: "Piso tátil direcional fabricado para conduzir e orientar o deslocamento seguro de pessoas com deficiência visual em ambientes públicos e privados. Produto resistente, funcional e desenvolvido conforme a necessidade de projetos acessíveis.",
+  },
+  {
+    img: produtoPlacaBraille,
+    name: "Placa em Braille – Sanitário PNE / Unissex",
+    desc: "Placa de sinalização em braille para sanitário PNE e unissex, produzida para garantir identificação acessível, leitura tátil e comunicação inclusiva em ambientes adaptados. Produto com acabamento profissional e excelente legibilidade.",
+  },
+  {
+    img: produtoPlacaFeminino,
+    name: "Placa de Sinalização Acessível – Sanitário Feminino",
+    desc: "Placa de sinalização acessível para sanitário feminino, com texto, pictograma e braille. Desenvolvida para proporcionar identificação clara, acessível e padronizada em ambientes públicos e privados.",
+  },
+  {
+    img: produtoPlacaMasculino,
+    name: "Placa de Sinalização Acessível – Sanitário Masculino",
+    desc: "Placa de sinalização acessível para sanitário masculino, com texto, pictograma e braille. Produto ideal para compor projetos de acessibilidade com qualidade, organização visual e conformidade técnica.",
+  },
+  {
+    img: produtoPlacaPuxeEmpurre,
+    name: 'Placa Tátil "Puxe / Empurre"',
+    desc: "Placa tátil indicativa \"Puxe / Empurre\", produzida para melhorar a comunicação acessível em portas e acessos. Conta com informação visual e braille, oferecendo mais autonomia, orientação e funcionalidade ao usuário.",
   },
 ];
 

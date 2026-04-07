@@ -86,9 +86,9 @@ const AboutSection = () => (
       {/* Mission / Vision / Values cards */}
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={containerVariants} className="grid md:grid-cols-3 gap-8">
         {[
-          { icon: Target, title: "Missão", text: "Fabricar e fornecer soluções em acessibilidade com alto padrão de qualidade, segurança e excelência — do projeto à instalação." },
-          { icon: Eye, title: "Visão", text: "Ser referência nacional como indústria de acessibilidade, reconhecida pela fabricação própria, inovação técnica e compromisso com a inclusão." },
-          { icon: Heart, title: "Valores", text: values.join(" · ") },
+          { icon: Target, title: "Missão", text: "Nossa missão é promover a autonomia e a dignidade humana, fabricando soluções de acessibilidade que eliminam barreiras e tornam o mundo um lugar mais inclusivo para todos." },
+          { icon: Eye, title: "Visão", text: "Ser reconhecida como a principal indústria de soluções em acessibilidade no Brasil, tornando-se a marca de referência para grandes projetos de infraestrutura e construção civil pela qualidade e confiança de nossos produtos." },
+          { icon: Heart, title: "Valores", text: "Inclusão social, ética profissional e excelência na fabricação de soluções acessíveis." },
         ].map((item) => (
           <motion.div
             key={item.title}

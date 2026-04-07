@@ -38,9 +38,9 @@ const Footer = () => {
                 <MessageCircle size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors" />
                 (11) 9 9162-8441
               </a>
-              <a href="mailto:contato@toceart.com.br" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
+              <a href="mailto:vendas@bethel.ind.br" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
                 <Mail size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors" />
-                contato@toceart.com.br
+                vendas@bethel.ind.br
               </a>
               <a href="https://www.google.com/maps/search/?api=1&query=Rua+Azuma+80+Penha+Bragança+Paulista+SP" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
                 <MapPin size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors mt-0.5" />

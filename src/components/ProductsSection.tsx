@@ -94,6 +94,21 @@ const products = [
     name: 'Placa Tátil "Puxe / Empurre"',
     desc: "Placa tátil indicativa \"Puxe / Empurre\", produzida para melhorar a comunicação acessível em portas e acessos. Conta com informação visual e braille, oferecendo mais autonomia, orientação e funcionalidade ao usuário.",
   },
+  {
+    img: produtoFitaSinalizacao,
+    name: "Fita Fotoluminescente de Sinalização",
+    desc: "Fita fotoluminescente desenvolvida para sinalização visual em ambientes internos, auxiliando na orientação e identificação de rotas e áreas de circulação. Produto funcional, resistente e ideal para projetos que exigem segurança e acessibilidade.",
+  },
+  {
+    img: produtoFitaFotoluminescente,
+    name: "Fita Fotoluminescente",
+    desc: "Solução fotoluminescente produzida para ampliar a visibilidade em ambientes com baixa iluminação, contribuindo para sinalização de rotas, degraus, acessos e áreas estratégicas. Produto prático, durável e de fácil aplicação.",
+  },
+  {
+    img: produtoFitaAdesiva,
+    name: "Fita Fotoluminescente Adesiva",
+    desc: "Fita fotoluminescente adesiva fabricada com excelente aderência e acabamento, ideal para aplicações em sinalização de segurança e acessibilidade. Desenvolvida para oferecer melhor orientação visual e reforçar a segurança dos espaços.",
+  },
 ];
 
 const containerVariants = {

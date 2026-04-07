@@ -35,7 +35,7 @@ const HeroSection = () => {
             transition={{ duration: 0.9, ease: "easeOut" }}
             src={logo}
             alt="BETHEL"
-            className="max-h-28 md:max-h-36 lg:max-h-44 w-auto mb-8 object-contain drop-shadow-sm"
+            className="max-h-36 md:max-h-44 lg:max-h-52 w-auto mb-8 object-contain drop-shadow-sm"
           />
 
           {/* Decorative line */}

@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container-bethel section-padding pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <img src={logo} alt="BETHEL" className="h-20 w-auto mb-4 rounded-lg bg-primary-foreground/90 p-2" />
+            <img src={logo} alt="BETHEL" className="h-28 w-auto mb-4 rounded-lg bg-primary-foreground/90 p-2" />
             <p className="font-body text-primary-foreground/70 text-sm leading-relaxed">
               Comércio de produtos de acessibilidade e prestação de serviços com qualidade e excelência.
             </p>

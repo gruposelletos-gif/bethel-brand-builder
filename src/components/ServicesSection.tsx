@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, Wrench, Settings, ClipboardList, UserCheck, Headphones, Factory, ShieldCheck, Calendar } from "lucide-react";
+import { Search, Wrench, ClipboardList, UserCheck, Factory, ShieldCheck, Calendar } from "lucide-react";
 
 const services = [
   { icon: Factory, title: "Fabricação Própria", desc: "Desenvolvemos e fabricamos nossos produtos com tecnologia própria, garantindo controle total de qualidade em cada etapa do processo produtivo." },
@@ -7,7 +7,6 @@ const services = [
   { icon: Search, title: "Consultoria Técnica", desc: "Análise e orientação profissional para projetos de acessibilidade, com conhecimento de quem fabrica e entende cada solução." },
   { icon: ClipboardList, title: "Execução de Projetos", desc: "Planejamento e execução completa — do desenvolvimento à entrega final — com engenharia capacitada e experiência comprovada." },
   { icon: UserCheck, title: "Atendimento Personalizado", desc: "Soluções sob medida para cada projeto, com suporte direto de quem fabrica e domina todo o processo produtivo." },
-  { icon: Headphones, title: "Suporte Técnico", desc: "Assistência técnica especializada com agilidade, respaldada por mais de 12 anos de experiência no segmento de acessibilidade." },
 ];
 
 const highlights = [

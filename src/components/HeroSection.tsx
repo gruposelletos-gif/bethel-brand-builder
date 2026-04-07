@@ -26,16 +26,27 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-transparent h-24" />
       </div>
 
+      {/* Logo on the right side, over the image */}
+      <motion.img
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        src={logo}
+        alt="BETHEL"
+        className="absolute right-8 md:right-16 lg:right-24 top-1/2 -translate-y-1/2 z-10 max-h-32 md:max-h-44 lg:max-h-56 w-auto object-contain drop-shadow-lg hidden md:block"
+      />
+
       {/* Content - pushed more to the left */}
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 xl:px-28">
         <div className="max-w-2xl">
+          {/* Mobile-only logo */}
           <motion.img
             initial={{ opacity: 0, scale: 0.85, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             src={logo}
             alt="BETHEL"
-            className="max-h-36 md:max-h-44 lg:max-h-52 w-auto mb-8 object-contain drop-shadow-sm"
+            className="max-h-28 w-auto mb-6 object-contain drop-shadow-sm md:hidden"
           />
 
           {/* Decorative line */}

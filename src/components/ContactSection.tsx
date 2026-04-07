@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Endereço",
-    value: "Rua Azuma, 80, Penha — Bragança Paulista - SP",
-    href: "https://www.google.com/maps/search/?api=1&query=Rua+Azuma+80+Penha+Bragança+Paulista+SP",
+    value: "Rua Francisco de Souza Dias Guimaraes, 80 — Centro Industrial Rafael Diniz — Bragança Paulista/SP",
+    href: "https://www.google.com/maps/search/?api=1&query=Rua+Francisco+de+Souza+Dias+Guimaraes+80+Centro+Industrial+Rafael+Diniz+Bragança+Paulista+SP",
   },
 ];
 

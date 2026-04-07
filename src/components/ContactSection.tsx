@@ -13,8 +13,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "E-mail",
-    value: "contato@toceart.com.br",
-    href: "mailto:contato@toceart.com.br",
+    value: "vendas@bethel.ind.br",
+    href: "mailto:vendas@bethel.ind.br",
   },
   {
     icon: MapPin,

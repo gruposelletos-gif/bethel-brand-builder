@@ -16,7 +16,7 @@ const products = [
   {
     img: produtoBarraU,
     name: 'Barra de Apoio em "U"',
-    desc: "Barra de apoio em formato "U", fabricada para oferecer maior estabilidade, apoio e segurança ao usuário. Indicada para banheiros acessíveis e espaços adaptados, com estrutura resistente e acabamento de alta qualidade.",
+    desc: "Barra de apoio em formato \"U\", fabricada para oferecer maior estabilidade, apoio e segurança ao usuário. Indicada para banheiros acessíveis e espaços adaptados, com estrutura resistente e acabamento de alta qualidade.",
   },
   {
     img: produtoBarraReta1,

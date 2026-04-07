@@ -23,9 +23,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
-      <div className="container-bethel flex items-center justify-between h-28 md:h-32 px-4 lg:px-16">
+      <div className="container-bethel flex items-center justify-between h-32 md:h-36 px-4 lg:px-16">
         <button onClick={() => scrollTo("#inicio")} className="flex-shrink-0">
-          <img src={logo} alt="BETHEL" className="h-24 md:h-28 w-auto object-contain" />
+          <img src={logo} alt="BETHEL" className="h-28 md:h-32 w-auto object-contain" />
         </button>
 
         {/* Desktop nav */}

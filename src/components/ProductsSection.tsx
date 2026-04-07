@@ -14,6 +14,9 @@ import produtoPlacaBraille from "@/assets/produto-placa-braille-pne.jpg";
 import produtoPlacaFeminino from "@/assets/produto-placa-sanitario-feminino.jpg";
 import produtoPlacaMasculino from "@/assets/produto-placa-sanitario-masculino.jpg";
 import produtoPlacaPuxeEmpurre from "@/assets/produto-placa-puxe-empurre.jpg";
+import produtoFitaSinalizacao from "@/assets/produto-fita-fotoluminescente-sinalizacao.jpg";
+import produtoFitaFotoluminescente from "@/assets/produto-fita-fotoluminescente.jpg";
+import produtoFitaAdesiva from "@/assets/produto-fita-fotoluminescente-adesiva.jpg";
 
 const products = [
   {
@@ -90,6 +93,21 @@ const products = [
     img: produtoPlacaPuxeEmpurre,
     name: 'Placa Tátil "Puxe / Empurre"',
     desc: "Placa tátil indicativa \"Puxe / Empurre\", produzida para melhorar a comunicação acessível em portas e acessos. Conta com informação visual e braille, oferecendo mais autonomia, orientação e funcionalidade ao usuário.",
+  },
+  {
+    img: produtoFitaSinalizacao,
+    name: "Fita Fotoluminescente de Sinalização",
+    desc: "Fita fotoluminescente desenvolvida para sinalização visual em ambientes internos, auxiliando na orientação e identificação de rotas e áreas de circulação. Produto funcional, resistente e ideal para projetos que exigem segurança e acessibilidade.",
+  },
+  {
+    img: produtoFitaFotoluminescente,
+    name: "Fita Fotoluminescente",
+    desc: "Solução fotoluminescente produzida para ampliar a visibilidade em ambientes com baixa iluminação, contribuindo para sinalização de rotas, degraus, acessos e áreas estratégicas. Produto prático, durável e de fácil aplicação.",
+  },
+  {
+    img: produtoFitaAdesiva,
+    name: "Fita Fotoluminescente Adesiva",
+    desc: "Fita fotoluminescente adesiva fabricada com excelente aderência e acabamento, ideal para aplicações em sinalização de segurança e acessibilidade. Desenvolvida para oferecer melhor orientação visual e reforçar a segurança dos espaços.",
   },
 ];
 

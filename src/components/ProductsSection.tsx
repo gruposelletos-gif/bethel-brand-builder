@@ -35,7 +35,7 @@ const ProductsSection = () => {
           </h2>
           <div className="w-20 h-1 gradient-primary mx-auto mt-4 rounded-full" />
           <p className="font-body text-muted-foreground text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-            Trabalhamos com produtos de <span className="text-primary font-semibold">qualidade</span>, selecionados para atender diferentes demandas com eficiência, <span className="text-primary font-semibold">segurança</span> e excelente acabamento.
+            Todos os nossos produtos são desenvolvidos e <span className="text-primary font-semibold">fabricados com tecnologia própria</span>, garantindo controle total de qualidade, <span className="text-primary font-semibold">segurança</span> e acabamento de alto padrão.
           </p>
         </motion.div>
 

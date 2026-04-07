@@ -30,7 +30,7 @@ const CtaSection = () => {
           viewport={{ once: true }}
           className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground max-w-3xl mx-auto"
         >
-          Precisa de produtos ou serviços com qualidade e confiança?
+          Fabricação própria, instalação profissional e atendimento especializado
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ const CtaSection = () => {
           transition={{ delay: 0.15 }}
           className="font-body text-primary-foreground/85 text-lg mt-6 max-w-2xl mx-auto leading-relaxed"
         >
-          Entre em contato com nossa equipe e solicite um orçamento personalizado.
+          Fale com nossa equipe e receba um orçamento personalizado direto da fábrica.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

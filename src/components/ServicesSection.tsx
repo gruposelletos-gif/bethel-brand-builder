@@ -29,7 +29,7 @@ const ServicesSection = () => (
         </h2>
         <div className="w-20 h-1 gradient-primary mx-auto mt-4 rounded-full" />
         <p className="font-body text-muted-foreground text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-          Além da comercialização de produtos, a BETHEL também oferece serviços especializados, com foco em atendimento de <span className="text-primary font-semibold">qualidade</span>, agilidade e excelência na execução.
+          Além de <span className="text-primary font-semibold">fabricar</span> nossos próprios produtos, a BETHEL oferece serviços especializados de instalação, consultoria e manutenção — com equipe técnica própria e foco em <span className="text-primary font-semibold">qualidade</span> e excelência na execução.
         </p>
       </motion.div>
 

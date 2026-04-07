@@ -42,9 +42,9 @@ const Footer = () => {
                 <Mail size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors" />
                 vendas@bethel.ind.br
               </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Rua+Azuma+80+Penha+Bragança+Paulista+SP" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua+Francisco+de+Souza+Dias+Guimaraes+80+Centro+Industrial+Rafael+Diniz+Bragança+Paulista+SP" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors group">
                 <MapPin size={16} className="text-primary-foreground/50 group-hover:text-primary-foreground transition-colors mt-0.5" />
-                Rua Azuma, 80, Penha, Bragança Paulista
+                Rua Francisco de Souza Dias Guimaraes, 80 — Centro Industrial Rafael Diniz — Bragança Paulista/SP
               </a>
             </div>
           </div>

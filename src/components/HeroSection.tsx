@@ -29,15 +29,6 @@ const HeroSection = () => {
       {/* Content - pushed more to the left */}
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 xl:px-28">
         <div className="max-w-2xl">
-          <motion.img
-            initial={{ opacity: 0, scale: 0.85, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            src={logo}
-            alt="BETHEL"
-            className="max-h-36 md:max-h-44 lg:max-h-52 w-auto mb-8 object-contain drop-shadow-sm"
-          />
-
           {/* Decorative line */}
           <motion.div
             initial={{ width: 0 }}

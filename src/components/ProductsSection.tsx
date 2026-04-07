@@ -14,6 +14,9 @@ import produtoPlacaBraille from "@/assets/produto-placa-braille-pne.jpg";
 import produtoPlacaFeminino from "@/assets/produto-placa-sanitario-feminino.jpg";
 import produtoPlacaMasculino from "@/assets/produto-placa-sanitario-masculino.jpg";
 import produtoPlacaPuxeEmpurre from "@/assets/produto-placa-puxe-empurre.jpg";
+import produtoFitaSinalizacao from "@/assets/produto-fita-fotoluminescente-sinalizacao.jpg";
+import produtoFitaFotoluminescente from "@/assets/produto-fita-fotoluminescente.jpg";
+import produtoFitaAdesiva from "@/assets/produto-fita-fotoluminescente-adesiva.jpg";
 
 const products = [
   {

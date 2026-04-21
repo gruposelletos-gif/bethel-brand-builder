@@ -35,11 +35,6 @@ const products = [
     desc: "Barra de apoio reta produzida com alta resistência e excelente acabamento. Indicada para auxiliar na mobilidade e dar mais segurança em áreas acessíveis, atendendo diferentes necessidades de instalação.",
   },
   {
-    img: produtoBarraReta2,
-    name: "Barra Reta de Apoio",
-    desc: "Barra de apoio reta produzida com alta resistência e excelente acabamento. Indicada para auxiliar na mobilidade e dar mais segurança em áreas acessíveis, atendendo diferentes necessidades de instalação.",
-  },
-  {
     img: produtoAlarme,
     name: "Alarme PCD",
     desc: "Alarme PCD desenvolvido para reforçar a segurança e a acessibilidade em sanitários e ambientes adaptados. Produto prático, funcional e essencial para espaços que exigem atendimento às normas de acessibilidade.",

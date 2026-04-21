@@ -36,8 +36,8 @@ const products = [
   },
   {
     img: produtoAlarme,
-    name: "Alarme PCD",
-    desc: "Alarme PCD desenvolvido para reforçar a segurança e a acessibilidade em sanitários e ambientes adaptados. Produto prático, funcional e essencial para espaços que exigem atendimento às normas de acessibilidade.",
+    name: "Elemento Tátil PVC",
+    desc: "Elemento tátil em PVC desenvolvido para auxiliar na sinalização e acessibilidade de ambientes. Ideal para aplicação em pisos, contribuindo para orientação e segurança de pessoas, especialmente em áreas que exigem adequação às normas de acessibilidade.",
   },
   {
     img: produtoChapa,

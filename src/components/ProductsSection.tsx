@@ -31,13 +31,13 @@ const products = [
   },
   {
     img: produtoBarraReta1,
-    name: "Barra de Apoio Reta",
+    name: "Barra Reta de Apoio",
     desc: "Barra de apoio reta produzida com alta resistência e excelente acabamento. Indicada para auxiliar na mobilidade e dar mais segurança em áreas acessíveis, atendendo diferentes necessidades de instalação.",
   },
   {
     img: produtoBarraReta2,
-    name: "Barra de Apoio Reta",
-    desc: "Barra de apoio reta fabricada para oferecer apoio seguro, resistência e durabilidade. Solução ideal para projetos de acessibilidade, com visual técnico, acabamento profissional e aplicação versátil.",
+    name: "Barra Reta de Apoio",
+    desc: "Barra de apoio reta produzida com alta resistência e excelente acabamento. Indicada para auxiliar na mobilidade e dar mais segurança em áreas acessíveis, atendendo diferentes necessidades de instalação.",
   },
   {
     img: produtoAlarme,

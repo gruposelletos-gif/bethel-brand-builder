@@ -21,7 +21,7 @@ import produtoFitaAdesiva from "@/assets/produto-fita-fotoluminescente-adesiva.j
 const products = [
   {
     img: produtoAssento,
-    name: "Assento Articulado Inox",
+    name: "Banco Articulado 70x45",
     desc: "Assento articulado em inox desenvolvido para proporcionar mais segurança, acessibilidade e conforto em ambientes adaptados. Ideal para banheiros acessíveis, oferece resistência, durabilidade e excelente acabamento.",
   },
   {

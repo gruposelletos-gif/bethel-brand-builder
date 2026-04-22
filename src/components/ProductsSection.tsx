@@ -65,11 +65,6 @@ const products = [
     desc: "Placa de sinalização em braille para sanitário PNE e unissex, produzida para garantir identificação acessível, leitura tátil e comunicação inclusiva em ambientes adaptados. Produto com acabamento profissional e excelente legibilidade.",
   },
   {
-    img: produtoPlacaFeminino,
-    name: "Placas Visual e Braille",
-    desc: "Placas de sinalização visual e em Braille, desenvolvidas para garantir acessibilidade e inclusão. Com excelente legibilidade e acabamento de qualidade, proporcionam orientação clara e eficiente em diversos ambientes.",
-  },
-  {
     img: produtoPlacaMasculino,
     name: "Placa de Sinalização Acessível – Sanitário Masculino",
     desc: "Placa de sinalização acessível para sanitário masculino, com texto, pictograma e braille. Produto ideal para compor projetos de acessibilidade com qualidade, organização visual e conformidade técnica.",

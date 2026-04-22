@@ -60,11 +60,6 @@ const products = [
     desc: "Elemento tátil em inox com fixação por parafuso, garantindo máxima firmeza e segurança. Ideal para locais de alto fluxo, oferece alta durabilidade, resistência e acabamento moderno.",
   },
   {
-    img: produtoPisoDirecional,
-    name: "Piso Tátil Direcional",
-    desc: "Piso tátil direcional fabricado para conduzir e orientar o deslocamento seguro de pessoas com deficiência visual em ambientes públicos e privados. Produto resistente, funcional e desenvolvido conforme a necessidade de projetos acessíveis.",
-  },
-  {
     img: produtoPlacaBraille,
     name: "Placa em Braille – Sanitário PNE / Unissex",
     desc: "Placa de sinalização em braille para sanitário PNE e unissex, produzida para garantir identificação acessível, leitura tátil e comunicação inclusiva em ambientes adaptados. Produto com acabamento profissional e excelente legibilidade.",

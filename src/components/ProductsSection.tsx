@@ -66,8 +66,8 @@ const products = [
   },
   {
     img: produtoFitaSinalizacao,
-    name: "Fita Fotoluminescente de Sinalização",
-    desc: "Fita fotoluminescente desenvolvida para sinalização visual em ambientes internos, auxiliando na orientação e identificação de rotas e áreas de circulação. Produto funcional, resistente e ideal para projetos que exigem segurança e acessibilidade.",
+    name: "Sinalizador de Degrau Fotoluminescente",
+    desc: "Sinalizador de degrau fotoluminescente, ideal para aumentar a segurança em escadas e desníveis. Brilha no escuro após exposição à luz, garantindo visibilidade mesmo em falta de energia, com fácil aplicação e alta durabilidade.",
   },
   {
     img: produtoFitaFotoluminescente,

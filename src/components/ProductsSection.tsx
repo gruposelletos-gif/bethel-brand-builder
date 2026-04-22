@@ -56,8 +56,8 @@ const products = [
   },
   {
     img: produtoPisoDirecionalAlerta,
-    name: "Piso Tátil Direcional e de Alerta",
-    desc: "Conjunto de piso tátil direcional e piso tátil de alerta, desenvolvido para orientar deslocamentos e sinalizar pontos de atenção em rotas acessíveis. Solução essencial para projetos de acessibilidade, com fabricação de qualidade e padrão técnico profissional.",
+    name: "Piso Tátil Concreto",
+    desc: "Piso tátil em concreto, robusto e altamente resistente, ideal para áreas externas. Garante acessibilidade com segurança, suportando alto fluxo e variações climáticas com excelente durabilidade.",
   },
   {
     img: produtoAcabamentoInox,

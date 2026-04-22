@@ -56,8 +56,8 @@ const products = [
   },
   {
     img: produtoAcabamentoInox,
-    name: "Acabamento / Proteção Inox",
-    desc: "Peça de acabamento em inox desenvolvida para proteção, fixação e composição técnica em ambientes acessíveis. Fabricada com material resistente, excelente acabamento e visual profissional.",
+    name: "Elemento Tátil Inox com Parafuso",
+    desc: "Elemento tátil em inox com fixação por parafuso, garantindo máxima firmeza e segurança. Ideal para locais de alto fluxo, oferece alta durabilidade, resistência e acabamento moderno.",
   },
   {
     img: produtoPisoDirecional,

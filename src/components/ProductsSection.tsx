@@ -46,8 +46,8 @@ const products = [
   },
   {
     img: produtoPlaca,
-    name: "Placa / Acabamento Inox",
-    desc: "Placa de acabamento em inox produzida com excelente qualidade e acabamento refinado. Indicada para compor soluções de acessibilidade com visual limpo, resistente e profissional.",
+    name: "Elemento Tátil Inox",
+    desc: "Elemento Tátil Inox",
   },
   {
     img: produtoPisoAlerta,

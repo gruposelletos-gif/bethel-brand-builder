@@ -66,8 +66,8 @@ const products = [
   },
   {
     img: produtoPlacaFeminino,
-    name: "Placa de Sinalização Acessível – Sanitário Feminino",
-    desc: "Placa de sinalização acessível para sanitário feminino, com texto, pictograma e braille. Desenvolvida para proporcionar identificação clara, acessível e padronizada em ambientes públicos e privados.",
+    name: "Placas Visual e Braille",
+    desc: "Placas de sinalização visual e em Braille, desenvolvidas para garantir acessibilidade e inclusão. Com excelente legibilidade e acabamento de qualidade, proporcionam orientação clara e eficiente em diversos ambientes.",
   },
   {
     img: produtoPlacaMasculino,

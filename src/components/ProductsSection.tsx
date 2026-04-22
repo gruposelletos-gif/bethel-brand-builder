@@ -41,8 +41,8 @@ const products = [
   },
   {
     img: produtoChapa,
-    name: "Chapa Inox para Acabamento / Proteção",
-    desc: "Chapa em inox para acabamento e proteção, desenvolvida para compor ambientes com mais resistência, durabilidade e padrão estético profissional. Ideal para aplicações que exigem robustez e acabamento técnico.",
+    name: "Elemento Tátil Inox Adesivado",
+    desc: "Elemento tátil em PVC desenvolvido para auxiliar na sinalização e acessibilidade de ambientes. Ideal para aplicação em pisos, contribuindo para orientação e segurança de pessoas, especialmente em áreas que exigem adequação às normas de acessibilidade.",
   },
   {
     img: produtoPlaca,

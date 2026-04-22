@@ -50,11 +50,6 @@ const products = [
     desc: "Elemento Tátil em inox de alta durabilidade, ideal para garantir acessibilidade e segurança em ambientes internos e externos. Resistente à corrosão, possui acabamento moderno e excelente fixação, proporcionando orientação eficiente e longa vida útil.",
   },
   {
-    img: produtoPisoAlerta,
-    name: "Piso Tátil de Alerta",
-    desc: "Piso tátil de alerta desenvolvido para sinalização de atenção e mudança de condição no percurso, contribuindo para a orientação e segurança de pessoas com deficiência visual. Fabricado com alta resistência, durabilidade e excelente acabamento.",
-  },
-  {
     img: produtoPisoDirecionalAlerta,
     name: "Piso Tátil Concreto",
     desc: "Piso tátil em concreto, robusto e altamente resistente, ideal para áreas externas. Garante acessibilidade com segurança, suportando alto fluxo e variações climáticas com excelente durabilidade.",

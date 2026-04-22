@@ -69,16 +69,6 @@ const products = [
     name: "Sinalizador de Degrau Fotoluminescente",
     desc: "Sinalizador de degrau fotoluminescente, ideal para aumentar a segurança em escadas e desníveis. Brilha no escuro após exposição à luz, garantindo visibilidade mesmo em falta de energia, com fácil aplicação e alta durabilidade.",
   },
-  {
-    img: produtoFitaFotoluminescente,
-    name: "Fita Fotoluminescente",
-    desc: "Solução fotoluminescente produzida para ampliar a visibilidade em ambientes com baixa iluminação, contribuindo para sinalização de rotas, degraus, acessos e áreas estratégicas. Produto prático, durável e de fácil aplicação.",
-  },
-  {
-    img: produtoFitaAdesiva,
-    name: "Fita Fotoluminescente Adesiva",
-    desc: "Fita fotoluminescente adesiva fabricada com excelente aderência e acabamento, ideal para aplicações em sinalização de segurança e acessibilidade. Desenvolvida para oferecer melhor orientação visual e reforçar a segurança dos espaços.",
-  },
 ];
 
 const containerVariants = {

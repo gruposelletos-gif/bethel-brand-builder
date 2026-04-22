@@ -47,7 +47,7 @@ const products = [
   {
     img: produtoPlaca,
     name: "Elemento Tátil Inox",
-    desc: "Elemento Tátil Inox",
+    desc: "Elemento Tátil em inox de alta durabilidade, ideal para garantir acessibilidade e segurança em ambientes internos e externos. Resistente à corrosão, possui acabamento moderno e excelente fixação, proporcionando orientação eficiente e longa vida útil.",
   },
   {
     img: produtoPisoAlerta,

@@ -37,7 +37,7 @@ const products = [
   {
     img: produtoAlarme,
     name: "Elemento Tátil PVC",
-    desc: "Elemento tátil em PVC desenvolvido para auxiliar na sinalização e acessibilidade de ambientes. Ideal para aplicação em pisos, contribuindo para orientação e segurança de pessoas, especialmente em áreas que exigem adequação às normas de acessibilidade.",
+    desc: "Elemento Tátil em PVC, leve e resistente, ideal para garantir acessibilidade com ótimo custo-benefício. Fácil de instalar, possui boa durabilidade e proporciona orientação segura em diversos ambientes.",
   },
   {
     img: produtoChapa,

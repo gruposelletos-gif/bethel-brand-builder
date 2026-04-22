@@ -65,16 +65,6 @@ const products = [
     desc: "Placa de sinalização em braille para sanitário PNE e unissex, produzida para garantir identificação acessível, leitura tátil e comunicação inclusiva em ambientes adaptados. Produto com acabamento profissional e excelente legibilidade.",
   },
   {
-    img: produtoPlacaMasculino,
-    name: "Placa de Sinalização Acessível – Sanitário Masculino",
-    desc: "Placa de sinalização acessível para sanitário masculino, com texto, pictograma e braille. Produto ideal para compor projetos de acessibilidade com qualidade, organização visual e conformidade técnica.",
-  },
-  {
-    img: produtoPlacaPuxeEmpurre,
-    name: 'Placa Tátil "Puxe / Empurre"',
-    desc: "Placa tátil indicativa \"Puxe / Empurre\", produzida para melhorar a comunicação acessível em portas e acessos. Conta com informação visual e braille, oferecendo mais autonomia, orientação e funcionalidade ao usuário.",
-  },
-  {
     img: produtoFitaSinalizacao,
     name: "Fita Fotoluminescente de Sinalização",
     desc: "Fita fotoluminescente desenvolvida para sinalização visual em ambientes internos, auxiliando na orientação e identificação de rotas e áreas de circulação. Produto funcional, resistente e ideal para projetos que exigem segurança e acessibilidade.",

@@ -42,7 +42,7 @@ const products = [
   {
     img: produtoChapa,
     name: "Elemento Tátil Inox Adesivado",
-    desc: "Elemento tátil em PVC desenvolvido para auxiliar na sinalização e acessibilidade de ambientes. Ideal para aplicação em pisos, contribuindo para orientação e segurança de pessoas, especialmente em áreas que exigem adequação às normas de acessibilidade.",
+    desc: "Elemento Tátil em inox adesivado, prático e de fácil instalação, ideal para garantir acessibilidade sem necessidade de perfuração. Resistente e com acabamento moderno, oferece ótima aderência e durabilidade para uso em diversos ambientes.",
   },
   {
     img: produtoPlaca,

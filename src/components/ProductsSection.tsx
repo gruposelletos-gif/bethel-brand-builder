@@ -17,6 +17,7 @@ import produtoPlacaPuxeEmpurre from "@/assets/produto-placa-puxe-empurre.jpg";
 import produtoFitaSinalizacao from "@/assets/produto-fita-fotoluminescente-sinalizacao.jpg";
 import produtoFitaFotoluminescente from "@/assets/produto-fita-fotoluminescente.jpg";
 import produtoFitaAdesiva from "@/assets/produto-fita-fotoluminescente-adesiva.jpg";
+import produtoPisoTatilPvc from "@/assets/produto-piso-tatil-pvc.jpg";
 
 const products = [
   {
@@ -68,6 +69,11 @@ const products = [
     img: produtoFitaSinalizacao,
     name: "Sinalizador de Degrau Fotoluminescente",
     desc: "Sinalizador de degrau fotoluminescente, ideal para aumentar a segurança em escadas e desníveis. Brilha no escuro após exposição à luz, garantindo visibilidade mesmo em falta de energia, com fácil aplicação e alta durabilidade.",
+  },
+  {
+    img: produtoPisoTatilPvc,
+    name: "Piso Tátil de PVC",
+    desc: "Piso Tátil de PVC desenvolvido para proporcionar acessibilidade e segurança em diversos ambientes. Fabricado com material resistente e antiderrapante, oferece fácil instalação, alta durabilidade e excelente acabamento para áreas internas e externas.",
   },
 ];
 

@@ -17,6 +17,7 @@ import produtoPlacaPuxeEmpurre from "@/assets/produto-placa-puxe-empurre.jpg";
 import produtoFitaSinalizacao from "@/assets/produto-fita-fotoluminescente-sinalizacao.jpg";
 import produtoFitaFotoluminescente from "@/assets/produto-fita-fotoluminescente.jpg";
 import produtoFitaAdesiva from "@/assets/produto-fita-fotoluminescente-adesiva.jpg";
+import produtoPisoTatilPvc from "@/assets/produto-piso-tatil-pvc.jpg";
 
 const products = [
   {

@@ -17,8 +17,14 @@ const Header = () => {
 
   const scrollTo = (href: string) => {
     setIsOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      const el = document.querySelector(href) as HTMLElement | null;
+      if (!el) return;
+      const header = document.querySelector("header");
+      const offset = header ? (header as HTMLElement).offsetHeight : 0;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 320);
   };
 
   return (

@@ -87,12 +87,12 @@ const Header = () => {
             >
               <button
                 onClick={() => scrollTo(item.href)}
-                className="flex items-center gap-1 font-heading text-sm font-medium tracking-wide text-white/90 hover:text-white transition-colors py-2 relative group"
                 className="flex items-center gap-1 font-heading text-sm font-medium tracking-wide text-white/85 hover:text-white transition-colors py-2 relative group"
               >
                 {item.label}
                 {item.mega && <ChevronDown size={14} className="opacity-70 group-hover:opacity-100 transition-opacity" />}
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-teal-light to-white group-hover:w-full transition-all duration-300" />
+              </button>
             </div>
           ))}
         </nav>

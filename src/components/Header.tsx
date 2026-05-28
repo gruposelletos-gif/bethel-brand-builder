@@ -70,11 +70,12 @@ const Header = () => {
     }, 280);
   };
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.4)] backdrop-blur-md" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}>
+    <header className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.6)]" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}>
       <div className="container-bethel flex items-center justify-between h-20 md:h-24 px-4 lg:px-8">
         <button onClick={() => scrollTo("#inicio")} className="flex-shrink-0">
           <img src={logo} alt="BETHEL" className="h-14 md:h-16 w-auto object-contain brightness-0 invert" />
         </button>
+
 
         {/* Desktop nav - centered */}
         <nav className="hidden lg:flex flex-1 items-center justify-center gap-8">
@@ -117,8 +118,8 @@ const Header = () => {
             transition={{ duration: 0.2 }}
             onMouseEnter={() => setHoveredMega("Produtos")}
             onMouseLeave={() => setHoveredMega(null)}
-            className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl backdrop-blur-xl"
-            style={{ background: "linear-gradient(180deg, hsla(var(--navy), 0.98) 0%, hsla(var(--primary), 0.96) 100%)" }}
+            className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl z-[100]"
+            style={{ background: "linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
           >
             <div className="container-bethel px-8 py-12">
               <div className="grid grid-cols-3 gap-8">
@@ -126,6 +127,7 @@ const Header = () => {
                   <div
                     key={col.title}
                     className={idx > 0 ? "lg:pl-8 lg:border-l lg:border-white/10" : ""}
+
                   >
                     <h3 className="font-heading text-xs font-bold tracking-[0.15em] uppercase text-white mb-5 pb-3 border-b border-white/15 flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-teal-light" />

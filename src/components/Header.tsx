@@ -70,7 +70,7 @@ const Header = () => {
     }, 280);
   };
 
-    <header className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.4)] backdrop-blur-md" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}>
+    <header className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.4)] backdrop-blur-md" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}>>
     <header className="fixed top-0 left-0 right-0 z-[100] bg-black text-white border-b border-white/10 shadow-lg">
       <div className="container-bethel flex items-center justify-between h-20 md:h-24 px-4 lg:px-8">
         <button onClick={() => scrollTo("#inicio")} className="flex-shrink-0">

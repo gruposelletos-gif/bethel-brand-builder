@@ -75,6 +75,7 @@ const Header = () => {
         <button onClick={() => scrollTo("#inicio")} className="flex-shrink-0">
           <img src={logo} alt="BETHEL" className="h-14 md:h-16 w-auto object-contain brightness-0 invert" />
         </button>
+    <header className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.6)]" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}>
 
         {/* Desktop nav - centered */}
         <nav className="hidden lg:flex flex-1 items-center justify-center gap-8">
@@ -120,8 +121,9 @@ const Header = () => {
             className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl backdrop-blur-xl"
             style={{ background: "linear-gradient(180deg, hsla(var(--navy), 0.98) 0%, hsla(var(--primary), 0.96) 100%)" }}
           >
-            <div className="container-bethel px-8 py-12">
-              <div className="grid grid-cols-3 gap-8">
+            className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl z-[100]"
+            style={{ background: "linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
+
                 {megaColumns.map((col, idx) => (
                   <div
                     key={col.title}

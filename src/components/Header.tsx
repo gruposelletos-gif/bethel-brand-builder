@@ -117,22 +117,28 @@ const Header = () => {
             transition={{ duration: 0.2 }}
             onMouseEnter={() => setHoveredMega("Produtos")}
             onMouseLeave={() => setHoveredMega(null)}
-            className="hidden lg:block absolute left-0 right-0 top-full bg-black border-t border-white/10 shadow-2xl"
+            className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl backdrop-blur-xl"
+            style={{ background: "linear-gradient(180deg, hsla(var(--navy), 0.98) 0%, hsla(var(--primary), 0.96) 100%)" }}
           >
-            <div className="container-bethel px-8 py-10">
-              <div className="grid grid-cols-3 gap-12">
-                {megaColumns.map((col) => (
-                  <div key={col.title}>
-                    <h3 className="font-heading text-sm font-bold tracking-wider uppercase text-white mb-4">
+            <div className="container-bethel px-8 py-12">
+              <div className="grid grid-cols-3 gap-8">
+                {megaColumns.map((col, idx) => (
+                  <div
+                    key={col.title}
+                    className={idx > 0 ? "lg:pl-8 lg:border-l lg:border-white/10" : ""}
+                  >
+                    <h3 className="font-heading text-xs font-bold tracking-[0.15em] uppercase text-white mb-5 pb-3 border-b border-white/15 flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-teal-light" />
                       {col.title}
                     </h3>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2.5">
                       {col.items.map((sub) => (
                         <li key={sub.label}>
                           <button
                             onClick={() => scrollTo(sub.href)}
-                            className="font-body text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 uppercase tracking-wide text-left"
+                            className="font-body text-sm text-white/75 hover:text-white hover:translate-x-1.5 transition-all duration-200 tracking-wide text-left flex items-center gap-2 group/sub"
                           >
+                            <span className="h-px w-3 bg-white/30 group-hover/sub:w-5 group-hover/sub:bg-teal-light transition-all duration-200" />
                             {sub.label}
                           </button>
                         </li>

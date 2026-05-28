@@ -128,10 +128,6 @@ const Header = () => {
                     key={col.title}
                     className={idx > 0 ? "lg:pl-8 lg:border-l lg:border-white/10" : ""}
 
-                {megaColumns.map((col, idx) => (
-                  <div
-                    key={col.title}
-                    className={idx > 0 ? "lg:pl-8 lg:border-l lg:border-white/10" : ""}
                   >
                     <h3 className="font-heading text-xs font-bold tracking-[0.15em] uppercase text-white mb-5 pb-3 border-b border-white/15 flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-teal-light" />

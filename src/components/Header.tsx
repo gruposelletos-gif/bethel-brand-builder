@@ -69,9 +69,8 @@ const Header = () => {
       window.scrollTo({ top, behavior: "smooth" });
     }, 280);
   };
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-black text-white border-b border-white/10 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.4)] backdrop-blur-md" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}>
       <div className="container-bethel flex items-center justify-between h-20 md:h-24 px-4 lg:px-8">
         <button onClick={() => scrollTo("#inicio")} className="flex-shrink-0">
           <img src={logo} alt="BETHEL" className="h-14 md:h-16 w-auto object-contain brightness-0 invert" />
@@ -88,11 +87,11 @@ const Header = () => {
             >
               <button
                 onClick={() => scrollTo(item.href)}
-                className="flex items-center gap-1 font-heading text-sm font-medium tracking-wide text-white/90 hover:text-white transition-colors py-2 relative group"
+                className="flex items-center gap-1 font-heading text-sm font-medium tracking-wide text-white/85 hover:text-white transition-colors py-2 relative group"
               >
                 {item.label}
-                {item.mega && <ChevronDown size={14} className="opacity-70" />}
-                <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-white group-hover:w-full transition-all duration-300" />
+                {item.mega && <ChevronDown size={14} className="opacity-70 group-hover:opacity-100 transition-opacity" />}
+                <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-teal-light to-white group-hover:w-full transition-all duration-300" />
               </button>
             </div>
           ))}
@@ -118,22 +117,28 @@ const Header = () => {
             transition={{ duration: 0.2 }}
             onMouseEnter={() => setHoveredMega("Produtos")}
             onMouseLeave={() => setHoveredMega(null)}
-            className="hidden lg:block absolute left-0 right-0 top-full bg-black border-t border-white/10 shadow-2xl"
+            className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl backdrop-blur-xl"
+            style={{ background: "linear-gradient(180deg, hsla(var(--navy), 0.98) 0%, hsla(var(--primary), 0.96) 100%)" }}
           >
-            <div className="container-bethel px-8 py-10">
-              <div className="grid grid-cols-3 gap-12">
-                {megaColumns.map((col) => (
-                  <div key={col.title}>
-                    <h3 className="font-heading text-sm font-bold tracking-wider uppercase text-white mb-4">
+            <div className="container-bethel px-8 py-12">
+              <div className="grid grid-cols-3 gap-8">
+                {megaColumns.map((col, idx) => (
+                  <div
+                    key={col.title}
+                    className={idx > 0 ? "lg:pl-8 lg:border-l lg:border-white/10" : ""}
+                  >
+                    <h3 className="font-heading text-xs font-bold tracking-[0.15em] uppercase text-white mb-5 pb-3 border-b border-white/15 flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-teal-light" />
                       {col.title}
                     </h3>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2.5">
                       {col.items.map((sub) => (
                         <li key={sub.label}>
                           <button
                             onClick={() => scrollTo(sub.href)}
-                            className="font-body text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 uppercase tracking-wide text-left"
+                            className="font-body text-sm text-white/75 hover:text-white hover:translate-x-1.5 transition-all duration-200 tracking-wide text-left flex items-center gap-2 group/sub"
                           >
+                            <span className="h-px w-3 bg-white/30 group-hover/sub:w-5 group-hover/sub:bg-teal-light transition-all duration-200" />
                             {sub.label}
                           </button>
                         </li>
@@ -154,7 +159,8 @@ const Header = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-black border-t border-white/10 overflow-hidden"
+            className="lg:hidden border-t border-white/10 overflow-hidden"
+            style={{ background: "linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
           >
             <nav className="flex flex-col px-4 py-4 gap-1 max-h-[80vh] overflow-y-auto">
               {navItems.map((item) =>

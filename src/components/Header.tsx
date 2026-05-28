@@ -162,7 +162,6 @@ const Header = () => {
             className="lg:hidden border-t border-white/10 overflow-hidden"
             style={{ background: "linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
           >
-          >
             <nav className="flex flex-col px-4 py-4 gap-1 max-h-[80vh] overflow-y-auto">
               {navItems.map((item) =>
                 item.mega ? (

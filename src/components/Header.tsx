@@ -118,11 +118,15 @@ const Header = () => {
             transition={{ duration: 0.2 }}
             onMouseEnter={() => setHoveredMega("Produtos")}
             onMouseLeave={() => setHoveredMega(null)}
-            className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl backdrop-blur-xl"
-            style={{ background: "linear-gradient(180deg, hsla(var(--navy), 0.98) 0%, hsla(var(--primary), 0.96) 100%)" }}
-          >
             className="hidden lg:block absolute left-0 right-0 top-full border-t border-white/10 shadow-2xl z-[100]"
             style={{ background: "linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
+          >
+            <div className="container-bethel px-8 py-12">
+              <div className="grid grid-cols-3 gap-8">
+                {megaColumns.map((col, idx) => (
+                  <div
+                    key={col.title}
+                    className={idx > 0 ? "lg:pl-8 lg:border-l lg:border-white/10" : ""}
 
                 {megaColumns.map((col, idx) => (
                   <div

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, LogIn, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo-bethel.png";
@@ -66,6 +66,15 @@ const Header = () => {
             </div>
           ))}
         </nav>
+
+        <Link
+          to="/auth"
+          onClick={closeAll}
+          className="hidden lg:inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-2 font-heading text-sm font-medium text-white transition-colors hover:bg-white/20"
+        >
+          <LogIn size={16} />
+          Entrar
+        </Link>
 
         {/* Mobile toggle */}
         <button
@@ -195,6 +204,14 @@ const Header = () => {
                   </button>
                 )
               )}
+              <Link
+                to="/auth"
+                onClick={closeAll}
+                className="mt-2 flex items-center justify-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-3 font-heading text-sm font-semibold text-white"
+              >
+                <LogIn size={16} />
+                Entrar
+              </Link>
             </nav>
           </motion.div>
         )}

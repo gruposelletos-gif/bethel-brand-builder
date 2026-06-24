@@ -15,6 +15,25 @@ const json = (body: unknown, status = 200) =>
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
 
+/** Erros de validação/regra de negócio retornam 200 para o cliente ler `error` no corpo. */
+const fail = (message: string) => json({ error: message });
+
+const authErrorMessage = (error: { message?: string; msg?: string; code?: string; error_description?: string }) => {
+  const message = [error.message, error.msg, error.error_description]
+    .find((value) => typeof value === "string" && value.trim()) ?? "";
+  if (message) {
+    if (message.toLowerCase().includes("weak") || message.toLowerCase().includes("pwned")) {
+      return "Senha fraca ou muito comum. Use letras, números e símbolos (ex.: Bethel@2026).";
+    }
+    if (message.toLowerCase().includes("different from the old")) {
+      return "A nova senha deve ser diferente da senha atual.";
+    }
+    return message;
+  }
+  if (error.code) return `Erro de autenticação (${error.code})`;
+  return "Não foi possível alterar a senha";
+};
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
@@ -51,9 +70,9 @@ Deno.serve(async (req: Request) => {
       const full_name = body?.full_name ? String(body.full_name).trim() : null;
       const role = body?.role as AppRole;
 
-      if (!email || !password || !role) return json({ error: "Preencha e-mail, senha e perfil" }, 400);
-      if (!VALID_ROLES.includes(role)) return json({ error: "Perfil inválido" }, 400);
-      if (password.length < 6) return json({ error: "A senha deve ter no mínimo 6 caracteres" }, 400);
+      if (!email || !password || !role) return fail("Preencha e-mail, senha e perfil");
+      if (!VALID_ROLES.includes(role)) return fail("Perfil inválido");
+      if (password.length < 8) return fail("A senha deve ter no mínimo 8 caracteres");
 
       const { data: newUser, error: createError } = await supabaseAdmin.auth.admin.createUser({
         email,
@@ -63,7 +82,7 @@ Deno.serve(async (req: Request) => {
       });
 
       if (createError || !newUser.user) {
-        return json({ error: createError?.message ?? "Erro ao criar usuário" }, 400);
+        return fail(authErrorMessage(createError ?? { message: "Erro ao criar usuário" }));
       }
 
       const { error: profileError } = await supabaseAdmin.from("profiles").insert({
@@ -73,7 +92,7 @@ Deno.serve(async (req: Request) => {
       });
       if (profileError) {
         await supabaseAdmin.auth.admin.deleteUser(newUser.user.id);
-        return json({ error: profileError.message }, 400);
+        return fail(profileError.message);
       }
 
       const { error: roleError } = await supabaseAdmin.from("user_roles").insert({
@@ -82,7 +101,7 @@ Deno.serve(async (req: Request) => {
       });
       if (roleError) {
         await supabaseAdmin.auth.admin.deleteUser(newUser.user.id);
-        return json({ error: roleError.message }, 400);
+        return fail(roleError.message);
       }
 
       return json({
@@ -94,17 +113,54 @@ Deno.serve(async (req: Request) => {
       const user_id = String(body?.user_id ?? "");
       const role = body?.role as AppRole;
 
-      if (!user_id || !role) return json({ error: "Dados incompletos" }, 400);
-      if (!VALID_ROLES.includes(role)) return json({ error: "Perfil inválido" }, 400);
+      if (!user_id || !role) return fail("Dados incompletos");
+      if (!VALID_ROLES.includes(role)) return fail("Perfil inválido");
 
       await supabaseAdmin.from("user_roles").delete().eq("user_id", user_id);
       const { error } = await supabaseAdmin.from("user_roles").insert({ user_id, role });
-      if (error) return json({ error: error.message }, 400);
+      if (error) return fail(error.message);
 
       return json({ success: true });
     }
 
-    return json({ error: "Ação inválida" }, 400);
+    if (action === "reset_password") {
+      const user_id = String(body?.user_id ?? "");
+      const password = String(body?.password ?? "");
+
+      if (!user_id || !password) return fail("Informe o usuário e a nova senha");
+      if (password.length < 8) return fail("A senha deve ter no mínimo 8 caracteres");
+
+      const serviceRole = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+      const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+
+      const authRes = await fetch(`${supabaseUrl}/auth/v1/admin/users/${user_id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${serviceRole}`,
+          apikey: serviceRole,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const authBody = await authRes.json().catch(() => ({} as Record<string, unknown>));
+
+      if (!authRes.ok) {
+        return fail(
+          authErrorMessage({
+            message: typeof authBody.message === "string" ? authBody.message : undefined,
+            msg: typeof authBody.msg === "string" ? authBody.msg : undefined,
+            code: typeof authBody.code === "string" ? authBody.code : undefined,
+            error_description:
+              typeof authBody.error_description === "string" ? authBody.error_description : undefined,
+          }),
+        );
+      }
+
+      return json({ success: true });
+    }
+
+    return fail("Ação inválida");
   } catch (e) {
     const message = e instanceof Error ? e.message : "Erro interno";
     return json({ error: message }, 500);

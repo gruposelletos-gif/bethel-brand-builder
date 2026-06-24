@@ -4,20 +4,39 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { createUser, fetchUsers, updateUserRole, type UserWithRole } from "@/lib/users";
+import {
+  createUser,
+  fetchUsers,
+  formatErrorMessage,
+  resetUserPassword,
+  updateUserRole,
+  type UserWithRole,
+} from "@/lib/users";
 import { MANAGEABLE_ROLES, ROLE_LABELS, type AppRole } from "@/lib/roles";
 import { toast } from "@/hooks/use-toast";
-import { Plus } from "lucide-react";
+import { KeyRound, Plus } from "lucide-react";
 
 const AdminUsers = () => {
   const [users, setUsers] = useState<UserWithRole[]>([]);
   const [busy, setBusy] = useState(false);
+  const [passwordResetUser, setPasswordResetUser] = useState<UserWithRole | null>(null);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [resettingPassword, setResettingPassword] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -26,7 +45,7 @@ const AdminUsers = () => {
   });
 
   const load = () => fetchUsers().then(setUsers).catch((e) => {
-    toast({ title: "Erro", description: e.message, variant: "destructive" });
+    toast({ title: "Erro", description: formatErrorMessage(e, "Não foi possível carregar os usuários"), variant: "destructive" });
   });
 
   useEffect(() => {
@@ -49,7 +68,7 @@ const AdminUsers = () => {
     } catch (err) {
       toast({
         title: "Erro",
-        description: err instanceof Error ? err.message : "Não foi possível criar o usuário",
+        description: formatErrorMessage(err, "Não foi possível criar o usuário"),
         variant: "destructive",
       });
     } finally {
@@ -65,9 +84,62 @@ const AdminUsers = () => {
     } catch (err) {
       toast({
         title: "Erro",
-        description: err instanceof Error ? err.message : "Não foi possível atualizar o perfil",
+        description: formatErrorMessage(err, "Não foi possível atualizar o perfil"),
         variant: "destructive",
       });
+    }
+  };
+
+  const openPasswordReset = (user: UserWithRole) => {
+    setPasswordResetUser(user);
+    setNewPassword("");
+    setConfirmPassword("");
+  };
+
+  const closePasswordReset = () => {
+    setPasswordResetUser(null);
+    setNewPassword("");
+    setConfirmPassword("");
+  };
+
+  const handlePasswordReset = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!passwordResetUser) return;
+
+    if (newPassword.length < 8) {
+      toast({
+        title: "Senha curta demais",
+        description: "Use no mínimo 8 caracteres.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast({
+        title: "Senhas não conferem",
+        description: "Digite a mesma senha nos dois campos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setResettingPassword(true);
+    try {
+      await resetUserPassword(passwordResetUser.id, newPassword);
+      toast({
+        title: "Senha redefinida",
+        description: `A senha de ${passwordResetUser.email} foi atualizada.`,
+      });
+      closePasswordReset();
+    } catch (err) {
+      toast({
+        title: "Erro",
+        description: formatErrorMessage(err, "Não foi possível redefinir a senha"),
+        variant: "destructive",
+      });
+    } finally {
+      setResettingPassword(false);
     }
   };
 
@@ -104,7 +176,7 @@ const AdminUsers = () => {
             id="user-password"
             type="password"
             required
-            minLength={6}
+            minLength={8}
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
@@ -139,25 +211,90 @@ const AdminUsers = () => {
                 <div className="font-medium">{u.full_name || u.email}</div>
                 <div className="text-xs text-muted-foreground">{u.email}</div>
               </div>
-              <Select
-                value={u.role ?? undefined}
-                onValueChange={(v) => handleRoleChange(u.id, v as AppRole)}
-              >
-                <SelectTrigger className="w-full sm:w-48">
-                  <SelectValue placeholder="Sem perfil" />
-                </SelectTrigger>
-                <SelectContent>
-                  {MANAGEABLE_ROLES.map((r) => (
-                    <SelectItem key={r} value={r}>
-                      {ROLE_LABELS[r]}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <div className="flex flex-col sm:flex-row gap-2 sm:items-center w-full sm:w-auto">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="w-full sm:w-auto"
+                  onClick={() => openPasswordReset(u)}
+                >
+                  <KeyRound size={16} aria-hidden />
+                  Redefinir senha
+                </Button>
+                <Select
+                  value={u.role ?? undefined}
+                  onValueChange={(v) => handleRoleChange(u.id, v as AppRole)}
+                >
+                  <SelectTrigger className="w-full sm:w-48">
+                    <SelectValue placeholder="Sem perfil" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {MANAGEABLE_ROLES.map((r) => (
+                      <SelectItem key={r} value={r}>
+                        {ROLE_LABELS[r]}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           ))
         )}
       </div>
+
+      <Dialog open={!!passwordResetUser} onOpenChange={(open) => !open && closePasswordReset()}>
+        <DialogContent>
+          <form onSubmit={handlePasswordReset}>
+            <DialogHeader>
+              <DialogTitle>Redefinir senha</DialogTitle>
+              <DialogDescription>
+                Defina uma nova senha para{" "}
+                <span className="font-medium text-foreground">{passwordResetUser?.email}</span>.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="py-4 space-y-4">
+              <div>
+                <Label htmlFor="new-password">Nova senha</Label>
+                <Input
+                  id="new-password"
+                  type="password"
+                  required
+                  minLength={8}
+                  autoComplete="new-password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Mínimo de 8 caracteres"
+                />
+              </div>
+              <div>
+                <Label htmlFor="confirm-password">Confirmar senha</Label>
+                <Input
+                  id="confirm-password"
+                  type="password"
+                  required
+                  minLength={8}
+                  autoComplete="new-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Repita a nova senha"
+                />
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Use uma senha forte com letras, números e símbolos. Evite senhas comuns como 12345678.
+              </p>
+            </div>
+            <DialogFooter>
+              <Button type="button" variant="outline" onClick={closePasswordReset}>
+                Cancelar
+              </Button>
+              <Button type="submit" disabled={resettingPassword}>
+                {resettingPassword ? "Salvando..." : "Salvar nova senha"}
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
     </AdminLayout>
   );
 };

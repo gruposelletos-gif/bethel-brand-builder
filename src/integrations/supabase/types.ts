@@ -41,6 +41,186 @@ export type Database = {
         }
         Relationships: []
       }
+      footer_settings: {
+        Row: {
+          address: string
+          address_link: string
+          credit_label: string
+          credit_url: string
+          description: string
+          email: string
+          id: number
+          logo_path: string | null
+          phone: string
+          phone_link: string
+          social_facebook: string | null
+          social_instagram: string | null
+          social_linkedin: string | null
+          social_links: Json
+          updated_at: string
+        }
+        Insert: {
+          address?: string
+          address_link?: string
+          credit_label?: string
+          credit_url?: string
+          description?: string
+          email?: string
+          id: number
+          logo_path?: string | null
+          phone?: string
+          phone_link?: string
+          social_facebook?: string | null
+          social_instagram?: string | null
+          social_linkedin?: string | null
+          social_links?: Json
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          address_link?: string
+          credit_label?: string
+          credit_url?: string
+          description?: string
+          email?: string
+          id?: number
+          logo_path?: string | null
+          phone?: string
+          phone_link?: string
+          social_facebook?: string | null
+          social_instagram?: string | null
+          social_linkedin?: string | null
+          social_links?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      form_configs: {
+        Row: {
+          created_at: string
+          description: string | null
+          enabled: boolean
+          fields: Json
+          id: string
+          name: string
+          slug: string
+          submit_label: string
+          success_message: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          enabled?: boolean
+          fields?: Json
+          id?: string
+          name: string
+          slug: string
+          submit_label?: string
+          success_message: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          enabled?: boolean
+          fields?: Json
+          id?: string
+          name?: string
+          slug?: string
+          submit_label?: string
+          success_message?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      form_submissions: {
+        Row: {
+          assunto: string | null
+          created_at: string
+          email: string | null
+          empresa: string | null
+          id: string
+          mensagem: string | null
+          nome: string | null
+          product_name: string | null
+          product_slug: string | null
+          telefone: string | null
+          tipo: string
+          user_id: string | null
+        }
+        Insert: {
+          assunto?: string | null
+          created_at?: string
+          email?: string | null
+          empresa?: string | null
+          id?: string
+          mensagem?: string | null
+          nome?: string | null
+          product_name?: string | null
+          product_slug?: string | null
+          telefone?: string | null
+          tipo?: string
+          user_id?: string | null
+        }
+        Update: {
+          assunto?: string | null
+          created_at?: string
+          email?: string | null
+          empresa?: string | null
+          id?: string
+          mensagem?: string | null
+          nome?: string | null
+          product_name?: string | null
+          product_slug?: string | null
+          telefone?: string | null
+          tipo?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      portfolio_projects: {
+        Row: {
+          active: boolean
+          cover_index: number
+          created_at: string
+          description: string
+          id: string
+          images: Json
+          slug: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          cover_index?: number
+          created_at?: string
+          description?: string
+          id?: string
+          images?: Json
+          slug: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          cover_index?: number
+          created_at?: string
+          description?: string
+          id?: string
+          images?: Json
+          slug?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       products: {
         Row: {
           active: boolean
@@ -90,6 +270,27 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
       }
       user_roles: {
         Row: {

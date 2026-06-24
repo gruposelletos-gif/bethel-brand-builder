@@ -74,8 +74,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return { error: error?.message ?? null };
+    const normalizedEmail = email.trim().toLowerCase();
+    const { error } = await supabase.auth.signInWithPassword({
+      email: normalizedEmail,
+      password,
+    });
+
+    if (!error) return { error: null };
+
+    const message =
+      error.message === "Invalid login credentials"
+        ? "E-mail ou senha incorretos. Verifique os dados e tente novamente."
+        : error.message;
+
+    return { error: message };
   };
 
   const signOut = async () => {

@@ -5,6 +5,11 @@ import {
   catalogProducts,
 } from "@/data/catalog-products";
 import { portfolioAssetMap } from "@/data/portfolio-assets";
+import {
+  buildMegaColumnsFromCategories,
+  DEFAULT_MEGA_COLUMNS,
+  type MegaColumn,
+} from "@/lib/navigation";
 
 export type Category = {
   id: string;
@@ -87,6 +92,27 @@ export const fetchActiveProducts = async (): Promise<Product[]> => {
     .order("sort_order");
   if (error) throw error;
   return ((data ?? []) as any[]).map(normalizeProduct);
+};
+
+/** Monta o menu suspenso de Produtos a partir das categorias com produtos ativos */
+export const fetchMegaMenuColumns = async (): Promise<MegaColumn[]> => {
+  const [categories, products] = await Promise.all([
+    fetchCategories(),
+    fetchActiveProducts(),
+  ]);
+
+  const categoryIdsWithActiveProducts = new Set(
+    products
+      .map((product) => product.category_id)
+      .filter((categoryId): categoryId is string => Boolean(categoryId)),
+  );
+
+  const visibleCategories = categories.filter((category) =>
+    categoryIdsWithActiveProducts.has(category.id),
+  );
+
+  const columns = buildMegaColumnsFromCategories(visibleCategories);
+  return columns.length > 0 ? columns : DEFAULT_MEGA_COLUMNS;
 };
 
 export const importCatalogProducts = async (): Promise<{ inserted: number; skipped: number }> => {

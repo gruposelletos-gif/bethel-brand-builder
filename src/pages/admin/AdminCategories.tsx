@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import AdminLayout from "@/components/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Category, fetchCategories, slugify } from "@/lib/products";
+import { MEGA_COLUMN_ORDER } from "@/lib/navigation";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { Plus, Trash2 } from "lucide-react";
 
 const AdminCategories = () => {
+  const queryClient = useQueryClient();
   const [cats, setCats] = useState<Category[]>([]);
   const [form, setForm] = useState({ name: "", slug: "", mega_column: "" });
 
@@ -28,6 +31,7 @@ const AdminCategories = () => {
     }
     setForm({ name: "", slug: "", mega_column: "" });
     toast({ title: "Categoria criada" });
+    queryClient.invalidateQueries({ queryKey: ["mega-menu"] });
     load();
   };
 
@@ -35,7 +39,10 @@ const AdminCategories = () => {
     if (!confirm("Excluir esta categoria? Produtos vinculados ficarão sem categoria.")) return;
     const { error } = await supabase.from("categories").delete().eq("id", id);
     if (error) toast({ title: "Erro", description: error.message, variant: "destructive" });
-    else load();
+    else {
+      queryClient.invalidateQueries({ queryKey: ["mega-menu"] });
+      load();
+    }
   };
 
   return (
@@ -53,7 +60,19 @@ const AdminCategories = () => {
         </div>
         <div>
           <Label htmlFor="cm">Coluna do menu</Label>
-          <Input id="cm" value={form.mega_column} onChange={(e) => setForm({ ...form, mega_column: e.target.value })} placeholder="Ex: Linha Acessibilidade" />
+          <select
+            id="cm"
+            value={form.mega_column}
+            onChange={(e) => setForm({ ...form, mega_column: e.target.value })}
+            className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            <option value="">Selecione a coluna…</option>
+            {MEGA_COLUMN_ORDER.map((column) => (
+              <option key={column} value={column}>
+                {column}
+              </option>
+            ))}
+          </select>
         </div>
         <Button type="submit"><Plus size={16} /> Adicionar</Button>
       </form>

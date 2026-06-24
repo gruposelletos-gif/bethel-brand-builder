@@ -85,6 +85,8 @@ Deno.serve(async (req: Request) => {
         return fail(authErrorMessage(createError ?? { message: "Erro ao criar usuário" }));
       }
 
+      await supabaseAdmin.rpc("normalize_auth_user_tokens", { _user_id: newUser.user.id });
+
       const { error: profileError } = await supabaseAdmin.from("profiles").insert({
         id: newUser.user.id,
         email,
@@ -130,31 +132,12 @@ Deno.serve(async (req: Request) => {
       if (!user_id || !password) return fail("Informe o usuário e a nova senha");
       if (password.length < 8) return fail("A senha deve ter no mínimo 8 caracteres");
 
-      const serviceRole = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
-      const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
-
-      const authRes = await fetch(`${supabaseUrl}/auth/v1/admin/users/${user_id}`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${serviceRole}`,
-          apikey: serviceRole,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password }),
+      const { error: resetError } = await supabaseAdmin.auth.admin.updateUserById(user_id, {
+        password,
       });
 
-      const authBody = await authRes.json().catch(() => ({} as Record<string, unknown>));
-
-      if (!authRes.ok) {
-        return fail(
-          authErrorMessage({
-            message: typeof authBody.message === "string" ? authBody.message : undefined,
-            msg: typeof authBody.msg === "string" ? authBody.msg : undefined,
-            code: typeof authBody.code === "string" ? authBody.code : undefined,
-            error_description:
-              typeof authBody.error_description === "string" ? authBody.error_description : undefined,
-          }),
-        );
+      if (resetError) {
+        return fail(authErrorMessage(resetError));
       }
 
       return json({ success: true });

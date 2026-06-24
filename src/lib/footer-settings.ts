@@ -103,8 +103,6 @@ export const saveFooterSettings = async (settings: FooterSettings) => {
       social_instagram: null,
       social_facebook: null,
       social_linkedin: null,
-      credit_url: settings.credit_url.trim(),
-      credit_label: settings.credit_label.trim(),
       updated_at: new Date().toISOString(),
     })
     .eq("id", 1);

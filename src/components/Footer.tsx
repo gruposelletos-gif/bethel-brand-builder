@@ -111,12 +111,12 @@ const Footer = () => {
           <p className="font-body text-xs text-primary-foreground/50">
             © {new Date().getFullYear()} BETHEL. Todos os direitos reservados. Criado por{" "}
             <a
-              href={settings.credit_url}
+              href={DEFAULT_FOOTER_SETTINGS.credit_url}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary-foreground transition-colors underline underline-offset-2"
             >
-              {settings.credit_label}
+              {DEFAULT_FOOTER_SETTINGS.credit_label}
             </a>
           </p>
         </div>

@@ -2,14 +2,23 @@ import { useState } from "react";
 import { ChevronDown, LogIn, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import logo from "@/assets/logo-bethel.png";
-import { navItems, megaColumns } from "@/lib/navigation";
+import { DEFAULT_MEGA_COLUMNS, navItems } from "@/lib/navigation";
+import { fetchMegaMenuColumns } from "@/lib/products";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredMega, setHoveredMega] = useState<string | null>(null);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const { data: megaColumns = DEFAULT_MEGA_COLUMNS } = useQuery({
+    queryKey: ["mega-menu"],
+    queryFn: fetchMegaMenuColumns,
+    staleTime: 60_000,
+  });
 
   const closeAll = () => {
     setIsOpen(false);
@@ -21,6 +30,13 @@ const Header = () => {
     closeAll();
     navigate(to);
   };
+
+  const megaGridClass =
+    megaColumns.length <= 1
+      ? "grid-cols-1"
+      : megaColumns.length === 2
+        ? "grid-cols-2"
+        : "grid-cols-3";
 
   return (
     <header
@@ -104,7 +120,7 @@ const Header = () => {
             style={{ background: "linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
           >
             <div className="container-bethel px-8 py-12">
-              <div className="grid grid-cols-3 gap-8">
+              <div className={cn("grid gap-8", megaGridClass)}>
                 {megaColumns.map((col, idx) => (
                   <div
                     key={col.title}
@@ -175,7 +191,7 @@ const Header = () => {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden pl-3 pb-3"
                         >
-                          {item.mega.map((col) => (
+                          {megaColumns.map((col) => (
                             <div key={col.title} className="mt-3">
                               <p className="font-heading text-xs font-bold uppercase tracking-wider text-white/90 mb-2">
                                 {col.title}

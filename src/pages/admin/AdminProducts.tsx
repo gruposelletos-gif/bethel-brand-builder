@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import { Link } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 import AdminLayout from "@/components/AdminLayout";
 import ProductPreview from "@/components/admin/ProductPreview";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,7 @@ import {
 } from "@/components/ui/sheet";
 
 const AdminProducts = () => {
+  const queryClient = useQueryClient();
   const searchId = useId();
   const filterId = useId();
   const [products, setProducts] = useState<Product[]>([]);
@@ -72,6 +74,7 @@ const AdminProducts = () => {
             title: "Catálogo sincronizado",
             description: `${result.inserted} produtos importados do site para o painel.`,
           });
+          queryClient.invalidateQueries({ queryKey: ["mega-menu"] });
         }
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : "Erro desconhecido";
@@ -94,6 +97,7 @@ const AdminProducts = () => {
     } else {
       toast({ title: "Produto excluído" });
       setToDelete(null);
+      queryClient.invalidateQueries({ queryKey: ["mega-menu"] });
       load();
     }
   };

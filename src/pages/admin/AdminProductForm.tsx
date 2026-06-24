@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 import AdminLayout from "@/components/AdminLayout";
 import ProductPreview from "@/components/admin/ProductPreview";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ const AdminProductForm = () => {
   const { id } = useParams<{ id: string }>();
   const isEdit = !!id;
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [cats, setCats] = useState<Category[]>([]);
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -42,27 +44,35 @@ const AdminProductForm = () => {
 
   useEffect(() => {
     fetchCategories().then(setCats);
-    if (isEdit) {
-      supabase
-        .from("products")
-        .select("*")
-        .eq("id", id)
-        .maybeSingle()
-        .then(({ data }) => {
-          if (data) {
-            setForm({
-              name: data.name,
-              slug: data.slug,
-              category_id: data.category_id ?? "",
-              description: data.description ?? "",
-              tech_info: data.tech_info ?? "",
-              active: data.active,
-              sort_order: data.sort_order ?? 0,
-              images: Array.isArray(data.images) ? (data.images as string[]) : [],
-            });
-          }
+  }, []);
+
+  useEffect(() => {
+    if (!isEdit || !id) return;
+
+    let cancelled = false;
+
+    supabase
+      .from("products")
+      .select("*")
+      .eq("id", id)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (cancelled || !data) return;
+        setForm({
+          name: data.name,
+          slug: data.slug,
+          category_id: data.category_id ?? "",
+          description: data.description ?? "",
+          tech_info: data.tech_info ?? "",
+          active: data.active,
+          sort_order: data.sort_order ?? 0,
+          images: Array.isArray(data.images) ? (data.images as string[]) : [],
         });
-    }
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [id, isEdit]);
 
   const update = <K extends keyof typeof form>(k: K, v: (typeof form)[K]) =>
@@ -146,6 +156,7 @@ const AdminProductForm = () => {
       return;
     }
     toast({ title: isEdit ? "Produto atualizado" : "Produto criado" });
+    queryClient.invalidateQueries({ queryKey: ["mega-menu"] });
     navigate("/admin/produtos");
   };
 

@@ -54,7 +54,7 @@ const ProductPreview = ({
   const hasImages = data.images.length > 0;
   const detailMode = editable ? "detail" : mode;
 
-  const CategoryField = () => {
+  const categoryField = (() => {
     if (editable && categories.length > 0) {
       return (
         <div className="mb-2">
@@ -91,9 +91,9 @@ const ProductPreview = ({
     }
 
     return null;
-  };
+  })();
 
-  const NameField = ({ className: nameClass }: { className?: string }) => {
+  const renderNameField = (nameClass?: string) => {
     if (editable) {
       return (
         <div>
@@ -123,7 +123,7 @@ const ProductPreview = ({
     );
   };
 
-  const DescriptionField = ({ rows = 4 }: { rows?: number }) => {
+  const renderDescriptionField = (rows = 4) => {
     if (editable) {
       return (
         <div>
@@ -155,7 +155,7 @@ const ProductPreview = ({
     return <p className="text-xs italic text-muted-foreground/60">Descrição do produto</p>;
   };
 
-  const TechInfoField = () => {
+  const techInfoField = (() => {
     if (editable) {
       return (
         <div className="rounded-lg border border-dashed border-border/80 bg-muted/20 p-3">
@@ -194,7 +194,7 @@ const ProductPreview = ({
         Informações técnicas
       </div>
     );
-  };
+  })();
 
   return (
     <div className={cn("flex flex-col", className)}>
@@ -292,10 +292,10 @@ const ProductPreview = ({
               )}
             </div>
             <div className="border-t border-border/60 p-4">
-              <CategoryField />
-              <NameField className="mb-1.5 text-base font-semibold" />
+              {categoryField}
+              {renderNameField("mb-1.5 text-base font-semibold")}
               <div className="mt-1.5">
-                <DescriptionField rows={3} />
+                {renderDescriptionField(3)}
               </div>
               <div className="mt-3 flex items-center gap-2 text-[10px] text-muted-foreground">
                 <span className="rounded bg-muted px-1.5 py-0.5 tabular-nums">
@@ -360,10 +360,10 @@ const ProductPreview = ({
               </div>
 
               <div className="min-w-0 space-y-3">
-                <CategoryField />
-                <NameField className="text-lg" />
-                <DescriptionField rows={editable ? 5 : 4} />
-                <TechInfoField />
+                {categoryField}
+                {renderNameField("text-lg")}
+                {renderDescriptionField(editable ? 5 : 4)}
+                {techInfoField}
               </div>
             </div>
           </div>

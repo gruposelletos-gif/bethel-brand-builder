@@ -291,31 +291,6 @@ const AdminFooterSettings = () => {
           )}
         </section>
 
-        <section className="bg-card border border-border rounded-lg p-5 space-y-4">
-          <h2 className="font-heading font-bold">Créditos do rodapé</h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="footer-credit-label">Texto do link</Label>
-              <Input
-                id="footer-credit-label"
-                value={form.credit_label}
-                onChange={(e) => update("credit_label", e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="footer-credit-url">URL do link</Label>
-              <Input
-                id="footer-credit-url"
-                type="url"
-                value={form.credit_url}
-                onChange={(e) => update("credit_url", e.target.value)}
-                required
-              />
-            </div>
-          </div>
-        </section>
-
         <Button type="submit" disabled={busy || uploading}>
           {busy ? "Salvando..." : <><Save size={16} /> Salvar configurações</>}
         </Button>

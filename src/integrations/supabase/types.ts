@@ -91,207 +91,6 @@ export type Database = {
           },
         ]
       }
-      profiles: {
-        Row: {
-          id: string
-          email: string
-          full_name: string | null
-          created_at: string
-        }
-        Insert: {
-          id: string
-          email: string
-          full_name?: string | null
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          email?: string
-          full_name?: string | null
-          created_at?: string
-        }
-        Relationships: []
-      }
-      form_configs: {
-        Row: {
-          id: string
-          slug: string
-          name: string
-          enabled: boolean
-          title: string
-          description: string | null
-          submit_label: string
-          success_message: string
-          fields: Json
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          slug: string
-          name: string
-          enabled?: boolean
-          title: string
-          description?: string | null
-          submit_label?: string
-          success_message: string
-          fields?: Json
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          slug?: string
-          name?: string
-          enabled?: boolean
-          title?: string
-          description?: string | null
-          submit_label?: string
-          success_message?: string
-          fields?: Json
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      form_submissions: {
-        Row: {
-          id: string
-          user_id: string | null
-          nome: string | null
-          empresa: string | null
-          telefone: string | null
-          email: string | null
-          assunto: string | null
-          mensagem: string | null
-          product_slug: string | null
-          product_name: string | null
-          tipo: string
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          user_id?: string | null
-          nome?: string | null
-          empresa?: string | null
-          telefone?: string | null
-          email?: string | null
-          assunto?: string | null
-          mensagem?: string | null
-          product_slug?: string | null
-          product_name?: string | null
-          tipo?: string
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          user_id?: string | null
-          nome?: string | null
-          empresa?: string | null
-          telefone?: string | null
-          email?: string | null
-          assunto?: string | null
-          mensagem?: string | null
-          product_slug?: string | null
-          product_name?: string | null
-          tipo?: string
-          created_at?: string
-        }
-        Relationships: []
-      }
-      portfolio_projects: {
-        Row: {
-          id: string
-          title: string
-          slug: string
-          description: string
-          images: Json
-          cover_index: number
-          sort_order: number
-          active: boolean
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          title: string
-          slug: string
-          description: string
-          images?: Json
-          cover_index?: number
-          sort_order?: number
-          active?: boolean
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          title?: string
-          slug?: string
-          description?: string
-          images?: Json
-          cover_index?: number
-          sort_order?: number
-          active?: boolean
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      footer_settings: {
-        Row: {
-          id: number
-          logo_path: string | null
-          description: string
-          phone: string
-          phone_link: string
-          email: string
-          address: string
-          address_link: string
-          social_instagram: string | null
-          social_facebook: string | null
-          social_linkedin: string | null
-          social_links: Json
-          credit_url: string
-          credit_label: string
-          updated_at: string
-        }
-        Insert: {
-          id?: number
-          logo_path?: string | null
-          description?: string
-          phone?: string
-          phone_link?: string
-          email?: string
-          address?: string
-          address_link?: string
-          social_instagram?: string | null
-          social_facebook?: string | null
-          social_linkedin?: string | null
-          social_links?: Json
-          credit_url?: string
-          credit_label?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: number
-          logo_path?: string | null
-          description?: string
-          phone?: string
-          phone_link?: string
-          email?: string
-          address?: string
-          address_link?: string
-          social_instagram?: string | null
-          social_facebook?: string | null
-          social_linkedin?: string | null
-          social_links?: Json
-          credit_url?: string
-          credit_label?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
       user_roles: {
         Row: {
           created_at: string
@@ -327,7 +126,7 @@ export type Database = {
       }
     }
     Enums: {
-      app_role: "admin" | "user" | "viewer" | "client"
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -455,7 +254,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "user", "viewer", "client"],
+      app_role: ["admin", "user"],
     },
   },
 } as const

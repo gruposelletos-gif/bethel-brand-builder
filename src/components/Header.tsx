@@ -27,13 +27,17 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-[100] text-white border-b border-white/10 shadow-[0_8px_30px_-12px_hsla(var(--navy),0.6)]"
       style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary)) 100%)" }}
     >
-      <div className="container-bethel flex items-center justify-between h-20 md:h-24 px-4 lg:px-8">
+      <div className="container-bethel flex items-center justify-between h-28 lg:h-32 px-4 lg:px-8">
         <Link to="/" onClick={closeAll} className="flex-shrink-0">
-          <img src={logo} alt="BETHEL" className="h-14 md:h-16 w-auto object-contain brightness-0 invert" />
+          <img
+            src={logo}
+            alt="BETHEL"
+            className="h-[5.75rem] lg:h-[7.25rem] w-auto object-contain brightness-0 invert"
+          />
         </Link>
 
         {/* Desktop nav - centered */}
-        <nav className="hidden lg:flex flex-1 items-center justify-center gap-8">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-6">
           {navItems.map((item) => (
             <div
               key={item.label}

@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { LogOut, Package, LayoutDashboard, Tags, Users, FileText, Settings, FolderKanban } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-bethel.png";
 
-const AdminLayout = ({ children }: { children: ReactNode }) => {
-  const { signOut, user, isAdmin, isViewer } = useAuth();
+const ClientLayout = ({ children }: { children: ReactNode }) => {
+  const { signOut, user } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -27,39 +27,13 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
         <div className="p-4 border-b border-border">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="BETHEL" className="h-10 w-auto" />
-            <span className="font-heading text-sm font-bold">
-              {isViewer && !isAdmin ? "Visualização" : "Admin"}
-            </span>
+            <span className="font-heading text-sm font-bold">Área do Cliente</span>
           </Link>
         </div>
         <nav className="flex-1 p-3 space-y-1">
-          {isAdmin && (
-            <>
-              <NavLink to="/admin" end className={navClass}>
-                <LayoutDashboard size={18} /> Dashboard
-              </NavLink>
-              <NavLink to="/admin/produtos" className={navClass}>
-                <Package size={18} /> Produtos
-              </NavLink>
-              <NavLink to="/admin/projetos" className={navClass}>
-                <FolderKanban size={18} /> Projetos
-              </NavLink>
-              <NavLink to="/admin/categorias" className={navClass}>
-                <Tags size={18} /> Categorias
-              </NavLink>
-              <NavLink to="/admin/usuarios" className={navClass}>
-                <Users size={18} /> Usuários
-              </NavLink>
-              <NavLink to="/admin/rodape" className={navClass}>
-                <Settings size={18} /> Rodapé
-              </NavLink>
-            </>
-          )}
-          {(isAdmin || isViewer) && (
-            <NavLink to="/admin/formularios" className={navClass}>
-              <FileText size={18} /> Formulários
-            </NavLink>
-          )}
+          <NavLink to="/cliente/formularios" className={navClass}>
+            Meus formulários
+          </NavLink>
         </nav>
         <div className="p-3 border-t border-border space-y-2">
           <p className="text-xs text-muted-foreground truncate px-2">{user?.email}</p>
@@ -73,4 +47,4 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default AdminLayout;
+export default ClientLayout;

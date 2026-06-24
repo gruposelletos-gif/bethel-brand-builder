@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
+import ProductQuoteForm from "@/components/products/ProductQuoteForm";
 import { Product, fetchProductBySlug, imageUrl, fetchCategories, Category } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 
@@ -98,7 +99,7 @@ const ProdutoDetalhe = () => {
             )}
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={`https://wa.me/?text=${whatsappMsg}`} target="_blank" rel="noreferrer">
+                <a href={`https://wa.me/?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer">
                   Solicitar orçamento
                 </a>
               </Button>
@@ -108,6 +109,8 @@ const ProdutoDetalhe = () => {
             </div>
           </div>
         </div>
+
+        <ProductQuoteForm productSlug={product.slug} productName={product.name} />
       </div>
     </PageLayout>
   );

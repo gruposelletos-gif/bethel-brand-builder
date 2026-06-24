@@ -1,15 +1,19 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import type { AppRole } from "@/lib/roles";
 
 type AuthCtx = {
   user: User | null;
   session: Session | null;
+  role: AppRole | null;
   isAdmin: boolean;
+  isViewer: boolean;
+  isClient: boolean;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
-  signUp: (email: string, password: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
+  hasRole: (roles: AppRole | AppRole[]) => boolean;
 };
 
 const Ctx = createContext<AuthCtx | undefined>(undefined);
@@ -17,38 +21,56 @@ const Ctx = createContext<AuthCtx | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [role, setRole] = useState<AppRole | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const checkAdmin = async (uid: string) => {
-    const { data } = await supabase
+  const loadRole = async (uid: string) => {
+    const { data, error } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", uid)
-      .eq("role", "admin")
       .maybeSingle();
-    setIsAdmin(!!data);
+
+    if (error) {
+      console.error("Erro ao carregar perfil:", error.message);
+      setRole(null);
+      return;
+    }
+
+    setRole((data?.role as AppRole | undefined) ?? null);
+  };
+
+  const resetAuth = () => {
+    setRole(null);
   };
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => {
+    let mounted = true;
+
+    const applySession = async (s: Session | null) => {
+      if (!mounted) return;
       setSession(s);
       setUser(s?.user ?? null);
       if (s?.user) {
-        setTimeout(() => checkAdmin(s.user.id), 0);
+        await loadRole(s.user.id);
       } else {
-        setIsAdmin(false);
+        resetAuth();
       }
+      if (mounted) setLoading(false);
+    };
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => {
+      void applySession(s);
     });
 
     supabase.auth.getSession().then(({ data: { session: s } }) => {
-      setSession(s);
-      setUser(s?.user ?? null);
-      if (s?.user) checkAdmin(s.user.id);
-      setLoading(false);
+      void applySession(s);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signIn = async (email: string, password: string) => {
@@ -56,21 +78,39 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return { error: error?.message ?? null };
   };
 
-  const signUp = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: { emailRedirectTo: `${window.location.origin}/admin` },
-    });
-    return { error: error?.message ?? null };
-  };
-
   const signOut = async () => {
     await supabase.auth.signOut();
+    resetAuth();
   };
 
+  const hasRole = useCallback(
+    (roles: AppRole | AppRole[]) => {
+      if (!role) return false;
+      const list = Array.isArray(roles) ? roles : [roles];
+      return list.includes(role);
+    },
+    [role],
+  );
+
+  const isAdmin = role === "admin";
+  const isViewer = role === "viewer";
+  const isClient = role === "client";
+
   return (
-    <Ctx.Provider value={{ user, session, isAdmin, loading, signIn, signUp, signOut }}>
+    <Ctx.Provider
+      value={{
+        user,
+        session,
+        role,
+        isAdmin,
+        isViewer,
+        isClient,
+        loading,
+        signIn,
+        signOut,
+        hasRole,
+      }}
+    >
       {children}
     </Ctx.Provider>
   );

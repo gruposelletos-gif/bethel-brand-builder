@@ -1,4 +1,10 @@
 import { supabase } from "@/integrations/supabase/client";
+import {
+  assetImageRef,
+  catalogAssetMap,
+  catalogProducts,
+} from "@/data/catalog-products";
+import { portfolioAssetMap } from "@/data/portfolio-assets";
 
 export type Category = {
   id: string;
@@ -32,6 +38,10 @@ export const slugify = (s: string) =>
 
 export const imageUrl = (path: string) => {
   if (path.startsWith("http")) return path;
+  if (path.startsWith("asset:")) {
+    const key = path.slice("asset:".length);
+    return catalogAssetMap[key] ?? portfolioAssetMap[key] ?? "";
+  }
   return supabase.storage.from("product-images").getPublicUrl(path).data.publicUrl;
 };
 
@@ -64,9 +74,54 @@ export const fetchAllProducts = async (): Promise<Product[]> => {
   const { data, error } = await supabase
     .from("products")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("sort_order");
   if (error) throw error;
   return ((data ?? []) as any[]).map(normalizeProduct);
+};
+
+export const fetchActiveProducts = async (): Promise<Product[]> => {
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("active", true)
+    .order("sort_order");
+  if (error) throw error;
+  return ((data ?? []) as any[]).map(normalizeProduct);
+};
+
+export const importCatalogProducts = async (): Promise<{ inserted: number; skipped: number }> => {
+  const categories = await fetchCategories();
+  const slugToId = new Map(categories.map((c) => [c.slug, c.id]));
+
+  const { data: existing } = await supabase.from("products").select("slug");
+  const existingSlugs = new Set((existing ?? []).map((p) => p.slug));
+
+  let inserted = 0;
+  let skipped = 0;
+
+  for (const item of catalogProducts) {
+    if (existingSlugs.has(item.slug)) {
+      skipped += 1;
+      continue;
+    }
+
+    const category_id = slugToId.get(item.categorySlug) ?? null;
+    const { error } = await supabase.from("products").insert({
+      name: item.name,
+      slug: item.slug,
+      description: item.description,
+      category_id,
+      images: [assetImageRef(item.imageKey)],
+      sort_order: item.sort_order,
+      active: true,
+    });
+
+    if (error) throw error;
+    inserted += 1;
+    existingSlugs.add(item.slug);
+  }
+
+  return { inserted, skipped };
 };
 
 export const fetchProductBySlug = async (slug: string): Promise<Product | null> => {

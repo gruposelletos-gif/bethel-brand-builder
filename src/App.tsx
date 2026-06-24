@@ -21,6 +21,13 @@ import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
 import AdminProducts from "./pages/admin/AdminProducts.tsx";
 import AdminProductForm from "./pages/admin/AdminProductForm.tsx";
 import AdminCategories from "./pages/admin/AdminCategories.tsx";
+import AdminUsers from "./pages/admin/AdminUsers.tsx";
+import AdminFormSubmissions from "./pages/admin/AdminFormSubmissions.tsx";
+import AdminPortfolioProjects from "./pages/admin/AdminPortfolioProjects.tsx";
+import AdminPortfolioProjectForm from "./pages/admin/AdminPortfolioProjectForm.tsx";
+import AdminFooterSettings from "./pages/admin/AdminFooterSettings.tsx";
+import ClientFormSubmissions from "./pages/client/ClientFormSubmissions.tsx";
+import ProtectedRoleRoute from "./components/ProtectedRoleRoute.tsx";
 
 const queryClient = new QueryClient();
 
@@ -49,7 +56,28 @@ const App = () => (
             <Route path="/admin/produtos" element={<ProtectedAdminRoute><AdminProducts /></ProtectedAdminRoute>} />
             <Route path="/admin/produtos/novo" element={<ProtectedAdminRoute><AdminProductForm /></ProtectedAdminRoute>} />
             <Route path="/admin/produtos/:id" element={<ProtectedAdminRoute><AdminProductForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/projetos" element={<ProtectedAdminRoute><AdminPortfolioProjects /></ProtectedAdminRoute>} />
+            <Route path="/admin/projetos/novo" element={<ProtectedAdminRoute><AdminPortfolioProjectForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/projetos/:id" element={<ProtectedAdminRoute><AdminPortfolioProjectForm /></ProtectedAdminRoute>} />
             <Route path="/admin/categorias" element={<ProtectedAdminRoute><AdminCategories /></ProtectedAdminRoute>} />
+            <Route path="/admin/usuarios" element={<ProtectedAdminRoute><AdminUsers /></ProtectedAdminRoute>} />
+            <Route path="/admin/rodape" element={<ProtectedAdminRoute><AdminFooterSettings /></ProtectedAdminRoute>} />
+            <Route
+              path="/admin/formularios"
+              element={
+                <ProtectedRoleRoute roles={["admin", "viewer"]}>
+                  <AdminFormSubmissions />
+                </ProtectedRoleRoute>
+              }
+            />
+            <Route
+              path="/cliente/formularios"
+              element={
+                <ProtectedRoleRoute roles={["client"]}>
+                  <ClientFormSubmissions />
+                </ProtectedRoleRoute>
+              }
+            />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

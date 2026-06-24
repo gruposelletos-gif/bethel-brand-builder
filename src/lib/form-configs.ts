@@ -148,7 +148,7 @@ export const updateFormConfig = async (slug: FormConfigSlug, update: FormConfigU
         description: update.description?.trim() || null,
         submit_label: update.submit_label.trim(),
         success_message: update.success_message.trim(),
-        fields: update.fields,
+        fields: update.fields as unknown as import("@/integrations/supabase/types").Json,
       })
       .eq("slug", slug);
     if (error) throw error;
@@ -164,7 +164,7 @@ export const updateFormConfig = async (slug: FormConfigSlug, update: FormConfigU
     description: update.description?.trim() || null,
     submit_label: update.submit_label.trim(),
     success_message: update.success_message.trim(),
-    fields: update.fields,
+    fields: update.fields as unknown as import("@/integrations/supabase/types").Json,
   });
   if (error) throw error;
 };

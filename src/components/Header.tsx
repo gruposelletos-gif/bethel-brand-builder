@@ -90,7 +90,7 @@ const Header = () => {
         <Link
           to="/auth"
           onClick={closeAll}
-          className="hidden lg:inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-2 font-heading text-sm font-medium text-white transition-colors hover:bg-white/20"
+          className="hidden lg:inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-2 lg:ml-8 font-heading text-sm font-medium text-white transition-colors hover:bg-white/20"
         >
           <LogIn size={16} />
           Entrar

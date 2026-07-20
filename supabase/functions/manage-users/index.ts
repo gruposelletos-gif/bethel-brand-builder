@@ -55,11 +55,13 @@ Deno.serve(async (req: Request) => {
     const { data: { user }, error: userError } = await supabaseUser.auth.getUser();
     if (userError || !user) return json({ error: "Não autorizado" }, 401);
 
-    const { data: isAdmin } = await supabaseUser.rpc("has_role", {
-      _user_id: user.id,
-      _role: "admin",
-    });
-    if (!isAdmin) return json({ error: "Acesso negado" }, 403);
+    const { data: adminRoleRow } = await supabaseAdmin
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", user.id)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!adminRoleRow) return json({ error: "Acesso negado" }, 403);
 
     const body = await req.json();
     const action = body?.action as string;

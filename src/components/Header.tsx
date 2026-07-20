@@ -88,6 +88,8 @@ const Header = () => {
         </nav>
 
         <Link
+          // spacing tweak: separa visualmente do último item do menu
+
           to="/auth"
           onClick={closeAll}
           className="hidden lg:inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-2 font-heading text-sm font-medium text-white transition-colors hover:bg-white/20"

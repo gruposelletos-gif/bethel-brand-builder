@@ -46,14 +46,16 @@ Deno.serve(async (req: Request) => {
     const authHeader = req.headers.get("Authorization");
     if (!authHeader) return json({ error: "Não autorizado" }, 401);
 
-    const supabaseUser = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
-      { global: { headers: { Authorization: authHeader } } },
-    );
+    const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+    if (!token) return json({ error: "Não autorizado" }, 401);
 
-    const { data: { user }, error: userError } = await supabaseUser.auth.getUser();
-    if (userError || !user) return json({ error: "Não autorizado" }, 401);
+    // Valida o JWT localmente (JWKS), sem depender da sessão ativa no servidor
+    const { data: claimsData, error: claimsError } = await supabaseAdmin.auth.getClaims(token);
+    const userId = claimsData?.claims?.sub as string | undefined;
+    if (claimsError || !userId) return json({ error: "Sessão expirada. Faça login novamente." }, 401);
+
+    const user = { id: userId };
+
 
     const { data: adminRoleRow } = await supabaseAdmin
       .from("user_roles")

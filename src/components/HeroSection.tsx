@@ -73,7 +73,7 @@ const HeroSection = () => {
               Conheça nossos produtos
             </button>
             <button
-              onClick={() => window.open("https://wa.me/5511999628441", "_blank", "noopener,noreferrer")}
+              onClick={() => window.open("https://wa.me/5511991628441", "_blank", "noopener,noreferrer")}
               className="btn-3d border-2 border-primary text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary/5 transition-all active:scale-[0.98]"
             >
               Fale com nossa equipe

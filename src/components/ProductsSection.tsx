@@ -124,7 +124,7 @@ const ProductsSection = () => {
                     </Link>
                   ) : (
                     <button
-                      onClick={() => scrollTo("#contato")}
+                      onClick={() => window.open("https://wa.me/5511999628441", "_blank", "noopener,noreferrer")}
                       className="font-heading text-xs font-bold tracking-wide text-primary hover:text-accent transition-colors self-start"
                     >
                       Solicitar orçamento →

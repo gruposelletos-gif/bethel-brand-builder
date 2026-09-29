@@ -10,7 +10,7 @@ const contactInfo = [
   {
     icon: MessageCircle,
     label: "WhatsApp / Telefone",
-    value: "(11) 9 9962-8441",
+    value: "(11) 99162-8441",
     href: "https://wa.me/5511991628441",
   },
   {

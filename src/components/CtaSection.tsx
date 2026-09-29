@@ -49,13 +49,13 @@ const CtaSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
         >
           <button
-            onClick={() => window.open("https://wa.me/5511999628441", "_blank", "noopener,noreferrer")}
+            onClick={() => window.open("https://wa.me/5511991628441", "_blank", "noopener,noreferrer")}
             className="bg-primary-foreground text-primary font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary-foreground/90 transition-all shadow-lg hover:shadow-xl"
           >
             Solicitar orçamento
           </button>
           <a
-            href="https://wa.me/5511999628441"
+            href="https://wa.me/5511991628441"
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-primary-foreground text-primary-foreground font-heading font-bold text-sm tracking-wide px-8 py-4 rounded-lg hover:bg-primary-foreground/10 transition-all inline-flex items-center justify-center gap-2"

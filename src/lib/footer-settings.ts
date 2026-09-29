@@ -25,8 +25,8 @@ export const DEFAULT_FOOTER_SETTINGS: FooterSettings = {
   logo_path: null,
   description:
     "Comércio de produtos de acessibilidade e prestação de serviços com qualidade e excelência.",
-  phone: "(11) 9 9162-8441",
-  phone_link: "https://wa.me/5511999628441",
+  phone: "(11) 99162-8441",
+  phone_link: "https://wa.me/5511991628441",
   email: "vendas@bethel.ind.br",
   address:
     "Rua Francisco de Souza Dias Guimaraes, 80 — Centro Industrial Rafael Diniz — Bragança Paulista/SP",

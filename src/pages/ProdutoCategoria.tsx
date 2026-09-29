@@ -55,7 +55,7 @@ const ProdutoCategoria = () => {
           ) : products.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-muted-foreground mb-4">Nenhum produto cadastrado nesta categoria ainda.</p>
-              <a href="https://wa.me/5511999628441" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+              <a href="https://wa.me/5511991628441" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
                 Entre em contato para mais informações
               </a>
             </div>

@@ -98,12 +98,12 @@ const ProdutoDetalhe = () => {
             )}
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href="https://wa.me/5511999628441" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5511991628441" target="_blank" rel="noopener noreferrer">
                   Solicitar orçamento
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href="https://wa.me/5511999628441" target="_blank" rel="noopener noreferrer">Falar com vendas</a>
+                <a href="https://wa.me/5511991628441" target="_blank" rel="noopener noreferrer">Falar com vendas</a>
               </Button>
             </div>
           </div>
